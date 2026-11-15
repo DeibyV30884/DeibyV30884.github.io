@@ -24,3 +24,18 @@ h2{font-size:1.5rem;margin:48px 0 20px}
 .links a:hover{color:var(--accent)}
 footer{padding-top:64px;padding-bottom:40px;color:var(--muted);font-size:.9rem}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;list-style:none;padding:0;margin:36px 0 0;color:var(--muted);font-size:.9rem}
+.stats strong{display:block;color:var(--fg);font-size:1.7rem;line-height:1.1}
+.card.featured{grid-column:1/-1;border-color:var(--accent)}
+.badge{align-self:flex-start;font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.links a{color:var(--accent)}
+.job{margin-bottom:28px}
+.job h3{margin:0 0 8px;font-size:1.05rem}
+.job h3 span{display:block;color:var(--muted);font-weight:400;font-size:.88rem}
+.job ul{margin:0;padding-left:20px;color:var(--muted)}
+.job li{margin-bottom:6px}
+.job a,footer a{color:var(--accent)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.skills h3{margin:0 0 6px;font-size:1rem}
+.skills p{margin:0;color:var(--muted)}
+.edu{margin-top:24px;color:var(--muted)}

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maqueta · Coraje y Esperanza</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root{--bg:#f4f5f9;--card:#fff;--fg:#17171a;--muted:#62626b;--line:#e3e4ea;--accent:#4f46e5;--ok:#15803d;--warn:#b45309;--bad:#b91c1c}
+    @media (prefers-color-scheme:dark){:root{--bg:#0f0f12;--card:#18181d;--fg:#f2f2f4;--muted:#9a9aa5;--line:#2a2a31;--accent:#8b85ff;--ok:#4ade80;--warn:#fbbf24;--bad:#f87171}}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+    button{font:inherit;cursor:pointer}
+    .banner{background:var(--accent);color:#fff;text-align:center;padding:8px 12px;font-size:.85rem}
+    .banner a{color:#fff;font-weight:600}
+    .center{min-height:calc(100vh - 38px);display:grid;place-items:center;padding:20px}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;width:100%;max-width:400px}
+    .panel h1{margin:0 0 4px;font-size:1.4rem}
+    .panel p{color:var(--muted);margin:0 0 18px}
+    .roles{display:grid;gap:10px}
+    .btn{border:1px solid var(--line);background:var(--card);color:var(--fg);padding:11px 14px;border-radius:10px;text-align:left}
+    .btn:hover{border-color:var(--accent)}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;text-align:center}
+    .btn small{display:block;color:var(--muted)}
+    input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);font:inherit;letter-spacing:.3em;text-align:center;margin-bottom:12px}
+    .app{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 38px)}
+    aside{background:var(--card);border-right:1px solid var(--line);padding:18px 12px}
+    aside h2{font-size:1rem;margin:0 8px 14px}
+    aside .who{margin:0 8px 14px;color:var(--muted);font-size:.8rem}
+    aside button{display:block;width:100%;text-align:left;border:0;background:none;color:var(--fg);padding:9px 10px;border-radius:8px}
+    aside button:hover{background:var(--bg)}
+    aside button.on{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-weight:600}
+    aside .out{margin-top:16px;color:var(--muted)}
+    main{padding:24px;overflow:auto}
+    main h1{margin:0 0 18px;font-size:1.3rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:20px}
+    .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+    .kpi span{color:var(--muted);font-size:.8rem}
+    .kpi strong{display:block;font-size:1.6rem}
+    table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+    th{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+    tr:last-child td{border-bottom:0}
+    .tag{padding:2px 9px;border-radius:99px;font-size:.75rem;font-weight:600}
+    .ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+    .warn{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent)}
+    .bad{color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,transparent)}
+    .qty button{width:28px;height:28px;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px}
+    .bars{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;align-items:flex-end;gap:14px;height:210px}
+    .bars div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:.75rem;color:var(--muted);gap:4px}
+    .bars i{display:block;width:100%;background:var(--accent);border-radius:6px 6px 0 0}
+    .note{color:var(--muted);font-size:.85rem;margin:14px 0 0}
+    @media (max-width:720px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:4px}aside h2,aside .who{width:100%}aside button{width:auto}}
+  </style>
+</head>
+<body>
+  <div class="banner">Maqueta interactiva con <strong>datos ficticios</strong>. No es el sistema real ni contiene información del cliente. · <a href="../">Volver al portfolio</a></div>
+  <div id="root"></div>
+
+<script>
+const ROLES = {
+  admin:   { name: 'Administrador',   user: 'Ana (admin)',      modules: ['resumen','rrhh','inventario','contabilidad','patrocinadores','familias'] },
+  rrhh:    { name: 'Recursos Humanos', user: 'Luis (RR. HH.)',  modules: ['resumen','rrhh'] },
+  familia: { name: 'Portal de Familias', user: 'Familia Rojas', modules: ['familias'] }
+};
+const MODULES = { resumen:'Resumen', rrhh:'RR. HH.', inventario:'Inventario', contabilidad:'Contabilidad', patrocinadores:'Patrocinadores', familias:'Portal de Familias' };
+
+const data = {
+  staff: [
+    { n:'María Solano', p:'Maestra', e:'Activa' }, { n:'Jorge Brenes', p:'Cocina', e:'Activo' },
+    { n:'Karla Mora', p:'Asistente', e:'Vacaciones' }, { n:'Pedro Vega', p:'Mantenimiento', e:'Activo' }
+  ],
+  stock: [
+    { a:'Arroz (kg)', s:42, m:30 }, { a:'Frijoles (kg)', s:12, m:25 },
+    { a:'Leche (L)', s:60, m:40 }, { a:'Papel higiénico (paq.)', s:5, m:10 }
+  ],
+  months: [['Jun',320],['Jul',410],['Ago',380],['Sep',470],['Oct',520],['Nov',450]],
+  sponsors: [
+    { n:'Fundación Luz', a:'₡250.000 / mes', e:'Al día' }, { n:'Comercial Delta', a:'₡120.000 / mes', e:'Al día' },
+    { n:'Donante anónimo', a:'₡75.000 / mes', e:'Pendiente' }
+  ],
+  families: [
+    { f:'Beneficiario A.R.', a:'Asistencia: 96 %', x:'Reunión de padres: viernes 10:00' },
+    { f:'Beneficiario M.R.', a:'Asistencia: 91 %', x:'Entrega de uniformes: lunes' }
+  ]
+};
+
+let role = null, current = 'resumen';
+const $ = s => document.querySelector(s), root = $('#root');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function login() {
+  root.innerHTML = `<div class="center"><div class="panel">
+    <h1>Coraje y Esperanza</h1><p>Elige un rol para explorar la maqueta. Cada rol ve módulos distintos, como en el control de acceso por roles del sistema real.</p>
+    <div class="roles">${Object.entries(ROLES).map(([k,r]) => `<button class="btn" data-role="${k}">${esc(r.name)}<small>${r.modules.length} módulo(s) disponibles</small></button>`).join('')}</div>
+  </div></div>`;
+  root.querySelectorAll('[data-role]').forEach(b => b.onclick = () => twoFA(b.dataset.role));
+}
+
+function twoFA(k) {
+  root.innerHTML = `<div class="center"><div class="panel">
+    <h1>Verificación en dos pasos</h1><p>Simulación de 2FA. Ingresa el código <strong>123456</strong>.</p>
+    <form id="f"><input id="code" inputmode="numeric" maxlength="6" placeholder="••••••" autofocus>
+    <button class="btn primary" style="width:100%">Verificar</button></form>
+    <p id="err" style="color:var(--bad);margin:10px 0 0"></p></div></div>`;
+  $('#f').onsubmit = e => {
+    e.preventDefault();
+    if ($('#code').value === '123456') { role = k; current = ROLES[k].modules[0]; app(); }
+    else $('#err').textContent = 'Código incorrecto. Prueba con 123456.';
+  };
+}
+
+const views = {
+  resumen: () => {
+    const low = data.stock.filter(i => i.s < i.m).length;
+    return `<h1>Resumen</h1><div class="cards">
+      <div class="kpi"><span>Personal activo</span><strong>${data.staff.length}</strong></div>
+      <div class="kpi"><span>Artículos bajo mínimo</span><strong>${low}</strong></div>
+      <div class="kpi"><span>Patrocinadores</span><strong>${data.sponsors.length}</strong></div>
+      <div class="kpi"><span>Familias</span><strong>${data.families.length}</strong></div></div>
+      <p class="note">Los KPI se calculan con los datos de los demás módulos. Prueba cambiar el inventario.</p>`;
+  },
+  rrhh: () => `<h1>Recursos Humanos</h1><table><tr><th>Nombre</th><th>Puesto</th><th>Estado</th></tr>
+    ${data.staff.map(s => `<tr><td>${esc(s.n)}</td><td>${esc(s.p)}</td><td><span class="tag ${s.e==='Vacaciones'?'warn':'ok'}">${esc(s.e)}</span></td></tr>`).join('')}</table>`,
+  inventario: () => `<h1>Inventario</h1><table><tr><th>Artículo</th><th>Stock</th><th>Mínimo</th><th>Estado</th></tr>
+    ${data.stock.map((i,x) => `<tr><td>${esc(i.a)}</td><td class="qty"><button data-d="-1" data-i="${x}">−</button> ${i.s} <button data-d="1" data-i="${x}">+</button></td><td>${i.m}</td>
+    <td><span class="tag ${i.s<i.m?'bad':'ok'}">${i.s<i.m?'Reponer':'OK'}</span></td></tr>`).join('')}</table>`,
+  contabilidad: () => {
+    const max = Math.max(...data.months.map(m => m[1]));
+    return `<h1>Contabilidad</h1><div class="bars">${data.months.map(([m,v]) => `<div><i style="height:${v/max*100}%"></i>${m}<br>${v}k</div>`).join('')}</div>
+      <p class="note">Ingresos mensuales ficticios en miles de colones.</p>`;
+  },
+  patrocinadores: () => `<h1>Patrocinadores</h1><table><tr><th>Patrocinador</th><th>Aporte</th><th>Estado</th></tr>
+    ${data.sponsors.map(s => `<tr><td>${esc(s.n)}</td><td>${esc(s.a)}</td><td><span class="tag ${s.e==='Al día'?'ok':'warn'}">${esc(s.e)}</span></td></tr>`).join('')}</table>`,
+  familias: () => `<h1>Portal de Familias</h1><table><tr><th>Beneficiario</th><th>Asistencia</th><th>Aviso</th></tr>
+    ${data.families.map(f => `<tr><td>${esc(f.f)}</td><td>${esc(f.a)}</td><td>${esc(f.x)}</td></tr>`).join('')}</table>`
+};
+
+function app() {
+  const r = ROLES[role];
+  root.innerHTML = `<div class="app"><aside><h2>Coraje y Esperanza</h2><div class="who">${esc(r.user)}</div>
+    ${r.modules.map(m => `<button data-m="${m}" class="${m===current?'on':''}">${MODULES[m]}</button>`).join('')}
+    <button class="out" id="out">Cerrar sesión</button></aside><main>${views[current]()}</main></div>`;
+  root.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { current = b.dataset.m; app(); });
+  root.querySelectorAll('[data-d]').forEach(b => b.onclick = () => {
+    const it = data.stock[+b.dataset.i]; it.s = Math.max(0, it.s + +b.dataset.d); app();
+  });
+  $('#out').onclick = () => { role = null; login(); };
+}
+login();
+</script>
+</body>
+</html>
