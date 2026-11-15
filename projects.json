@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Proyecto de ejemplo 1",
+    "description": "Descripción corta de lo que hace el proyecto y qué problema resuelve.",
+    "tags": ["JavaScript", "Web"],
+    "repo": "https://github.com/DeibyVargasChaves",
+    "demo": ""
+  },
+  {
+    "title": "Proyecto de ejemplo 2",
+    "description": "Otro proyecto: cuenta qué tecnologías usaste y qué aprendiste.",
+    "tags": ["Python", "API"],
+    "repo": "https://github.com/DeibyVargasChaves",
+    "demo": ""
+  }
+]
