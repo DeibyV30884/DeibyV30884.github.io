@@ -4,8 +4,8 @@
     "badge": "En desarrollo · Cliente real",
     "description": "Plataforma de varios módulos (RR. HH., inventario, contabilidad, patrocinadores, portales para familias y beneficiarios). Tengo a cargo las decisiones técnicas y de producto, levanto requerimientos con el cliente y gestiono sprints en YouTrack. Seguridad con JWT, 2FA y rutas por roles.",
     "tags": [".NET", "React", "PostgreSQL / SQL Server", "JWT", "2FA", "YouTrack"],
-    "demo": "demo/",
-    "demoLabel": "Ver maqueta interactiva"
+    "demo": "#sistema",
+    "demoLabel": "Ver el sistema en video"
   },
   {
     "title": "Plataforma Interna de Entregas",
