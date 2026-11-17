@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deibyv30884.github.io/sitemap.xml
