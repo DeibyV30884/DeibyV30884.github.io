@@ -40,16 +40,17 @@
   <main id="contenido" class="wrap">
     <p class="crumb"><a href="/#proyectos">Proyectos</a> / Sistema de Citas y Expedientes Médicos</p>
     <div class="phead">
-      
-      <h1>Sistema de Citas y Expedientes Médicos</h1>
-      <p class="dek">Aplicación web con roles para programar citas, llevar los expedientes de los pacientes y registrar tratamientos y recetas.</p>
+      <div class="logo logo-sm"><img src="/assets/logos/citas.svg" alt="Logo genérico del consultorio de demostración" width="160" height="160"></div>
+      <div>
+        
+        <h1>Sistema de Citas y Expedientes Médicos</h1>
+        <p class="dek">Aplicación web con roles para programar citas, llevar los expedientes de los pacientes y registrar tratamientos y recetas.</p>
+      </div>
     </div>
-    <dl class="ficha">
-      <div><dt>Mi función</dt><dd>Proyecto en equipo. Analicé los requerimientos, planteé qué se iba a hacer y dividí el trabajo en partes. Además desarrollé el mayor porcentaje del sistema.</dd></div>
-      <div><dt>Roles</dt><dd>Administrador, secretaría, médico y paciente</dd></div>
-      <div><dt>Tecnologías</dt><dd>Java, Spring Boot, Thymeleaf, Spring Security y MySQL</dd></div>
-      <div><dt>Idiomas</dt><dd>Interfaz en español e inglés</dd></div>
-      <div><dt>Alcance</dt><dd>Citas, expedientes, prescripciones y reportes de usuarios</dd></div>
+    <dl class="facts">
+      <div><dt>4</dt><dd>portales por rol</dd></div>
+      <div><dt>7</dt><dd>controladores</dd></div>
+      <div><dt>12</dt><dd>tablas de base de datos</dd></div>
     </dl>
     <video class="player" controls preload="metadata" playsinline poster="/assets/citas-poster.jpg" aria-label="Recorrido en video por Sistema de Citas y Expedientes Médicos, con datos de demostración">
       <source src="/assets/citas-demo.mp4" type="video/mp4">
@@ -62,6 +63,23 @@
       <li><button type="button" data-t="115"><time>1:55</time>Administrador</button></li>
     </ul>
     <p class="aviso"><strong>Aviso:</strong> Pacientes, citas, expedientes y usuarios del video son <strong>datos de demostración (demo)</strong> y ficticios; no hay información médica ni personal real.</p>
+    <h2 class="sec-h" style="margin-top:2.5rem">Mi participación y alcance</h2>
+    <dl class="ficha">
+      <div><dt>Mi función</dt><dd>Proyecto en equipo. Analicé los requerimientos, planteé qué se iba a hacer y dividí el trabajo en partes. Además desarrollé el mayor porcentaje del sistema.</dd></div>
+      <div><dt>Roles</dt><dd>Administrador, secretaría, médico y paciente</dd></div>
+      <div><dt>Tecnologías</dt><dd>Java, Spring Boot, Thymeleaf, Spring Security y MySQL</dd></div>
+      <div><dt>Idiomas</dt><dd>Interfaz en español e inglés</dd></div>
+      <div><dt>Alcance</dt><dd>Citas, expedientes, prescripciones y reportes de usuarios</dd></div>
+    </dl>
+    <h2 class="sec-h">De qué se compone</h2>
+    <div class="grupos">
+      <div><h3>Secretaría</h3><ul><li>Pacientes: listado, búsqueda y registro</li><li>Agenda de citas</li><li>Registro de citas</li><li>Perfil</li></ul></div>
+      <div><h3>Médico</h3><ul><li>Resumen del día</li><li>Atención de la cita</li><li>Expedientes e historial</li><li>Prescripciones</li></ul></div>
+      <div><h3>Paciente</h3><ul><li>Mis citas</li><li>Agendar y cancelar</li><li>Tratamientos</li><li>Perfil</li></ul></div>
+      <div><h3>Administrador</h3><ul><li>Reportes de usuarios por rol</li><li>Gestión de usuarios y roles</li><li>Perfil</li></ul></div>
+      <div><h3>Acceso</h3><ul><li>Inicio de sesión</li><li>Registro de pacientes</li><li>Recuperación de contraseña</li></ul></div>
+    </div>
+    <p class="arq">Aplicación MVC en Spring Boot con vistas Thymeleaf, seguridad por rutas y roles con Spring Security, y base de datos MySQL. La interfaz se puede cambiar entre español e inglés.</p>
     <div class="cols">
       <div>
         <h2>Qué se ve en el video</h2>

@@ -40,15 +40,17 @@
   <main id="contenido" class="wrap">
     <p class="crumb"><a href="/#proyectos">Proyectos</a> / Coraje y Esperanza</p>
     <div class="phead">
-      <span class="chip">En desarrollo, con cliente real</span>
-      <h1>Coraje y Esperanza</h1>
-      <p class="dek">Sistema de gestión para un centro diurno: recursos humanos, contabilidad, inventario, terapia ocupacional y portales para familias y beneficiarios.</p>
+      <div class="logo logo-sm"><img src="/assets/logos/coraje-esperanza.jpg" alt="Logo del Centro Diurno Asociación Coraje y Esperanza" width="160" height="160"></div>
+      <div>
+        <span class="chip">En desarrollo, con cliente real</span>
+        <h1>Coraje y Esperanza</h1>
+        <p class="dek">Sistema de gestión para un centro diurno: recursos humanos, contabilidad, inventario, terapia ocupacional y portales para familias y beneficiarios.</p>
+      </div>
     </div>
-    <dl class="ficha">
-      <div><dt>Mi función</dt><dd>Busqué al cliente, gestiono las reuniones con él, definí los módulos, levanto requerimientos funcionales, no funcionales y de seguridad, escribo las historias de usuario y gestiono sprints y prioridades en YouTrack. También desarrollo el sistema y tengo a cargo las decisiones técnicas y de producto.</dd></div>
-      <div><dt>Tecnologías</dt><dd>.NET 10, React, PostgreSQL y SQL Server</dd></div>
-      <div><dt>Seguridad</dt><dd>Autenticación JWT, doble factor (2FA) y rutas protegidas por rol</dd></div>
-      <div><dt>Módulos</dt><dd>Recursos humanos, inventario y bodega, contabilidad, donaciones, patrocinadores, terapia ocupacional y portales</dd></div>
+    <dl class="facts">
+      <div><dt>18</dt><dd>módulos funcionales</dd></div>
+      <div><dt>47</dt><dd>controladores de API</dd></div>
+      <div><dt>5</dt><dd>áreas del centro cubiertas</dd></div>
     </dl>
     <video class="player" controls preload="metadata" playsinline poster="/assets/coraje-esperanza-poster.jpg" aria-label="Recorrido en video por Coraje y Esperanza, con datos de demostración">
       <source src="/assets/coraje-esperanza-demo.mp4" type="video/mp4">
@@ -60,6 +62,22 @@
       <li><button type="button" data-t="142"><time>2:22</time>Terapia ocupacional</button></li>
     </ul>
     <p class="aviso"><strong>Aviso:</strong> Todos los datos del video son <strong>datos de demostración (demo)</strong>: nombres de personas, usuarios, correos, cuentas, montos y registros son ficticios y no corresponden a información real del centro ni de sus beneficiarios.</p>
+    <h2 class="sec-h" style="margin-top:2.5rem">Mi participación y alcance</h2>
+    <dl class="ficha">
+      <div><dt>Mi función</dt><dd>Busqué al cliente, gestiono las reuniones con él, definí los módulos, levanto requerimientos funcionales, no funcionales y de seguridad, escribo las historias de usuario y gestiono sprints y prioridades en YouTrack. También desarrollo el sistema y tengo a cargo las decisiones técnicas y de producto.</dd></div>
+      <div><dt>Tecnologías</dt><dd>.NET 10, React, PostgreSQL y SQL Server</dd></div>
+      <div><dt>Seguridad</dt><dd>Autenticación JWT, doble factor (2FA) y rutas protegidas por rol</dd></div>
+      <div><dt>Módulos</dt><dd>Recursos humanos, inventario y bodega, contabilidad, donaciones, patrocinadores, terapia ocupacional y portales</dd></div>
+    </dl>
+    <h2 class="sec-h">De qué se compone</h2>
+    <div class="grupos">
+      <div><h3>Personas</h3><ul><li>Usuarios y permisos</li><li>Recursos humanos</li><li>Beneficiarios</li><li>Familiares</li><li>Estudiantes de TCU</li></ul></div>
+      <div><h3>Dinero</h3><ul><li>Contabilidad</li><li>Donaciones</li><li>Padrinos y patrocinadores</li></ul></div>
+      <div><h3>Bodega y compras</h3><ul><li>Inventario y bodega</li><li>Proveedores y menú</li></ul></div>
+      <div><h3>Atención</h3><ul><li>Terapia ocupacional</li><li>Bitácora del terapeuta</li><li>Calendario</li><li>Portal del beneficiario</li></ul></div>
+      <div><h3>Administración</h3><ul><li>Activos fijos</li><li>Repositorio de documentos</li><li>Junta directiva</li><li>Solicitudes de cambio</li></ul></div>
+    </div>
+    <p class="arq">Inicio, perfil y notificaciones son comunes a todos los roles. La API en .NET 10 está organizada por capas (API, Aplicación, Entidades e Infraestructura) y el frontend en React está dividido por módulos, con tutoriales guiados y centro de ayuda integrados.</p>
     <div class="cols">
       <div>
         <h2>Qué se ve en el video</h2>

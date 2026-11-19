@@ -99,6 +99,57 @@ const projects = [
   },
 ];
 
+// Logo, cifras y componentes (contados del código real de cada proyecto).
+const extra = {
+  'coraje-esperanza': {
+    logo: 'coraje-esperanza.jpg', logoAlt: 'Logo del Centro Diurno Asociación Coraje y Esperanza',
+    nums: [['18', 'módulos funcionales'], ['47', 'controladores de API'], ['5', 'áreas del centro cubiertas']],
+    grupos: [
+      ['Personas', ['Usuarios y permisos', 'Recursos humanos', 'Beneficiarios', 'Familiares', 'Estudiantes de TCU']],
+      ['Dinero', ['Contabilidad', 'Donaciones', 'Padrinos y patrocinadores']],
+      ['Bodega y compras', ['Inventario y bodega', 'Proveedores y menú']],
+      ['Atención', ['Terapia ocupacional', 'Bitácora del terapeuta', 'Calendario', 'Portal del beneficiario']],
+      ['Administración', ['Activos fijos', 'Repositorio de documentos', 'Junta directiva', 'Solicitudes de cambio']],
+    ],
+    arq: 'Inicio, perfil y notificaciones son comunes a todos los roles. La API en .NET 10 está organizada por capas (API, Aplicación, Entidades e Infraestructura) y el frontend en React está dividido por módulos, con tutoriales guiados y centro de ayuda integrados.',
+  },
+  entregas: {
+    logo: 'entregas.png', logoAlt: 'Logo de DeUna CR, plataforma de entregas',
+    nums: [['4', 'portales por rol'], ['8', 'módulos de API'], ['10', 'tablas de base de datos']],
+    grupos: [
+      ['Cliente', ['Explorar restaurantes y productos', 'Confirmar pedido con mapa', 'Seguimiento en vivo', 'Historial y perfil']],
+      ['Restaurante', ['Pedidos entrantes y asignación', 'Gestión de productos', 'Mapa de repartidores', 'Perfil']],
+      ['Repartidor', ['Panel con pedidos asignados', 'Pedido activo con ruta', 'Historial y estadísticas', 'Perfil']],
+      ['Administrador', ['Panel con estadísticas', 'Gestión de usuarios', 'Recarga de saldo', 'Perfil']],
+      ['API', ['Administración', 'Clientes', 'Pedidos', 'Productos', 'Recargas de saldo', 'Repartidores', 'Restaurantes', 'Usuarios']],
+    ],
+    arq: 'API en .NET 8 y frontend en React con Tailwind. Los mapas usan Leaflet y las rutas del frontend están protegidas por rol con JWT.',
+  },
+  'citas-expedientes': {
+    logo: 'citas.svg', logoAlt: 'Logo genérico del consultorio de demostración',
+    nums: [['4', 'portales por rol'], ['7', 'controladores'], ['12', 'tablas de base de datos']],
+    grupos: [
+      ['Secretaría', ['Pacientes: listado, búsqueda y registro', 'Agenda de citas', 'Registro de citas', 'Perfil']],
+      ['Médico', ['Resumen del día', 'Atención de la cita', 'Expedientes e historial', 'Prescripciones']],
+      ['Paciente', ['Mis citas', 'Agendar y cancelar', 'Tratamientos', 'Perfil']],
+      ['Administrador', ['Reportes de usuarios por rol', 'Gestión de usuarios y roles', 'Perfil']],
+      ['Acceso', ['Inicio de sesión', 'Registro de pacientes', 'Recuperación de contraseña']],
+    ],
+    arq: 'Aplicación MVC en Spring Boot con vistas Thymeleaf, seguridad por rutas y roles con Spring Security, y base de datos MySQL. La interfaz se puede cambiar entre español e inglés.',
+  },
+  alimentico: {
+    logo: 'alimentico.png', logoAlt: 'Logo de AlimenTICO',
+    nums: [['3', 'portales por rol'], ['4', 'controladores'], ['8', 'tablas de base de datos'], ['21', 'vistas']],
+    grupos: [
+      ['Restaurante', ['Panel con resumen de donaciones', 'Publicar y editar donaciones', 'Detalle de cada donación', 'Perfil con horarios y ubicación']],
+      ['Beneficiario', ['Donaciones disponibles con búsqueda y filtros', 'Detalle y reserva', 'Mis reservas con código de retiro', 'Perfil']],
+      ['Administrador', ['Panel con estadísticas', 'Gestión de beneficiarios', 'Gestión de restaurantes', 'Perfil']],
+      ['Acceso', ['Inicio de sesión', 'Registro de restaurantes y beneficiarios', 'Recuperación de contraseña por correo']],
+    ],
+    arq: 'PHP con patrón MVC (controladores, modelos y vistas), base de datos MySQL y envío de correos con PHPMailer. Corre en contenedores Docker.',
+  },
+};
+
 const mmss = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const plain = (s) => s.replace(/<[^>]+>/g, '');
@@ -154,6 +205,7 @@ fs.mkdirSync(path.join(root, 'proyectos'), { recursive: true });
 projects.forEach((p, i) => {
   const url = `${SITE}/proyectos/${p.slug}.html`;
   const prev = projects[i - 1], next = projects[i + 1];
+  const x = extra[p.slug];
   const ld = {
     '@context': 'https://schema.org', '@type': 'VideoObject',
     name: `${p.title}: recorrido en video (datos de demostración)`,
@@ -167,12 +219,15 @@ projects.forEach((p, i) => {
   <main id="contenido" class="wrap">
     <p class="crumb"><a href="/#proyectos">Proyectos</a> / ${esc(p.title)}</p>
     <div class="phead">
-      ${p.status ? `<span class="chip">${esc(p.status)}</span>` : ''}
-      <h1>${esc(p.title)}</h1>
-      <p class="dek">${esc(p.dek)}</p>
+      <div class="logo logo-sm"><img src="/assets/logos/${x.logo}" alt="${esc(x.logoAlt)}" width="160" height="160"></div>
+      <div>
+        ${p.status ? `<span class="chip">${esc(p.status)}</span>` : ''}
+        <h1>${esc(p.title)}</h1>
+        <p class="dek">${esc(p.dek)}</p>
+      </div>
     </div>
-    <dl class="ficha">
-${p.ficha.map(([k, v]) => `      <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n')}
+    <dl class="facts">
+${x.nums.map(([n, l]) => `      <div><dt>${n}</dt><dd>${esc(l)}</dd></div>`).join('\n')}
     </dl>
     <video class="player" controls preload="metadata" playsinline poster="/assets/${p.video.poster}" aria-label="${esc(`Recorrido en video por ${p.title}, con datos de demostración`)}">
       <source src="/assets/${p.video.src}" type="video/mp4">
@@ -182,6 +237,15 @@ ${p.ficha.map(([k, v]) => `      <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>
 ${p.video.chapters.map(([t, l]) => `      <li><button type="button" data-t="${t}"><time>${mmss(t)}</time>${esc(l)}</button></li>`).join('\n')}
     </ul>
     <p class="aviso"><strong>Aviso:</strong> ${p.aviso}</p>
+    <h2 class="sec-h" style="margin-top:2.5rem">Mi participación y alcance</h2>
+    <dl class="ficha">
+${p.ficha.map(([k, v]) => `      <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n')}
+    </dl>
+    <h2 class="sec-h">De qué se compone</h2>
+    <div class="grupos">
+${x.grupos.map(([g, items]) => `      <div><h3>${esc(g)}</h3><ul>${items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul></div>`).join('\n')}
+    </div>
+    <p class="arq">${esc(x.arq)}</p>
     <div class="cols">
       <div>
         <h2>Qué se ve en el video</h2>

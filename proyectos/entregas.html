@@ -40,15 +40,17 @@
   <main id="contenido" class="wrap">
     <p class="crumb"><a href="/#proyectos">Proyectos</a> / Plataforma Interna de Entregas</p>
     <div class="phead">
-      
-      <h1>Plataforma Interna de Entregas</h1>
-      <p class="dek">Aplicación para una mensajería de restaurantes: pedidos con seguimiento en vivo, mapa en tiempo real y confirmación de la entrega con un código.</p>
+      <div class="logo logo-sm"><img src="/assets/logos/entregas.png" alt="Logo de DeUna CR, plataforma de entregas" width="160" height="160"></div>
+      <div>
+        
+        <h1>Plataforma Interna de Entregas</h1>
+        <p class="dek">Aplicación para una mensajería de restaurantes: pedidos con seguimiento en vivo, mapa en tiempo real y confirmación de la entrega con un código.</p>
+      </div>
     </div>
-    <dl class="ficha">
-      <div><dt>Origen</dt><dd>Identifiqué la necesidad operativa y construí la aplicación de principio a fin.</dd></div>
-      <div><dt>Tecnologías</dt><dd>.NET 8 (API), React, Tailwind, Leaflet y SQL Server</dd></div>
-      <div><dt>Seguridad</dt><dd>Autenticación JWT y rutas protegidas por rol</dd></div>
-      <div><dt>Roles</dt><dd>Cliente, restaurante, repartidor y administrador</dd></div>
+    <dl class="facts">
+      <div><dt>4</dt><dd>portales por rol</dd></div>
+      <div><dt>8</dt><dd>módulos de API</dd></div>
+      <div><dt>10</dt><dd>tablas de base de datos</dd></div>
     </dl>
     <video class="player" controls preload="metadata" playsinline poster="/assets/entregas-poster.jpg" aria-label="Recorrido en video por Plataforma Interna de Entregas, con datos de demostración">
       <source src="/assets/entregas-demo.mp4" type="video/mp4">
@@ -63,6 +65,22 @@
       <li><button type="button" data-t="153"><time>2:33</time>Administrador</button></li>
     </ul>
     <p class="aviso"><strong>Aviso:</strong> Usuarios, pedidos, restaurantes y montos del video son <strong>datos de demostración (demo)</strong>; no corresponden a personas ni negocios reales.</p>
+    <h2 class="sec-h" style="margin-top:2.5rem">Mi participación y alcance</h2>
+    <dl class="ficha">
+      <div><dt>Origen</dt><dd>Identifiqué la necesidad operativa y construí la aplicación de principio a fin.</dd></div>
+      <div><dt>Tecnologías</dt><dd>.NET 8 (API), React, Tailwind, Leaflet y SQL Server</dd></div>
+      <div><dt>Seguridad</dt><dd>Autenticación JWT y rutas protegidas por rol</dd></div>
+      <div><dt>Roles</dt><dd>Cliente, restaurante, repartidor y administrador</dd></div>
+    </dl>
+    <h2 class="sec-h">De qué se compone</h2>
+    <div class="grupos">
+      <div><h3>Cliente</h3><ul><li>Explorar restaurantes y productos</li><li>Confirmar pedido con mapa</li><li>Seguimiento en vivo</li><li>Historial y perfil</li></ul></div>
+      <div><h3>Restaurante</h3><ul><li>Pedidos entrantes y asignación</li><li>Gestión de productos</li><li>Mapa de repartidores</li><li>Perfil</li></ul></div>
+      <div><h3>Repartidor</h3><ul><li>Panel con pedidos asignados</li><li>Pedido activo con ruta</li><li>Historial y estadísticas</li><li>Perfil</li></ul></div>
+      <div><h3>Administrador</h3><ul><li>Panel con estadísticas</li><li>Gestión de usuarios</li><li>Recarga de saldo</li><li>Perfil</li></ul></div>
+      <div><h3>API</h3><ul><li>Administración</li><li>Clientes</li><li>Pedidos</li><li>Productos</li><li>Recargas de saldo</li><li>Repartidores</li><li>Restaurantes</li><li>Usuarios</li></ul></div>
+    </div>
+    <p class="arq">API en .NET 8 y frontend en React con Tailwind. Los mapas usan Leaflet y las rutas del frontend están protegidas por rol con JWT.</p>
     <div class="cols">
       <div>
         <h2>Qué se ve en el video</h2>

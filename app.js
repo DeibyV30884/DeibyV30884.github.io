@@ -9,11 +9,11 @@
   var KEY = 'ajustes';
   var st = {};
   try { st = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
-  st.theme = st.theme || 'auto'; st.size = st.size || 'm';
+  st.theme = st.theme || 'auto'; st.fs = Number(st.fs) || 100;
 
   function apply() {
     root.dataset.theme = st.theme;
-    root.dataset.size = st.size;
+    root.style.setProperty('--fs', st.fs + '%');
     st.contrast ? root.dataset.contrast = 'high' : delete root.dataset.contrast;
     st.font === 'system' ? root.dataset.font = 'system' : delete root.dataset.font;
     st.spacing ? root.dataset.spacing = 'wide' : delete root.dataset.spacing;
@@ -37,7 +37,8 @@
       '<span>Ajustes de lectura</span></button>' +
       '<div class="aj-panel" id="aj-panel" role="group" aria-label="Ajustes de lectura" hidden>' +
       seg('theme', 'Tema', [['light', 'Claro'], ['dark', 'Oscuro'], ['auto', 'Automático']]) +
-      seg('size', 'Tamaño de letra', [['s', 'Pequeño'], ['m', 'Normal'], ['l', 'Grande'], ['xl', 'Muy grande']]) +
+      '<fieldset><legend><label for="aj-fs">Tamaño de letra</label></legend><div class="range"><span class="a-s" aria-hidden="true">A</span>' +
+      '<input id="aj-fs" type="range" min="85" max="150" step="5" value="100" aria-valuetext="100 %"><span class="a-l" aria-hidden="true">A</span><output for="aj-fs">100 %</output></div></fieldset>' +
       chk('contrast', 'Contraste alto') +
       chk('font', 'Letra del sistema (más neutra y legible)') +
       chk('spacing', 'Más espacio entre líneas y letras') +
@@ -45,7 +46,11 @@
       '<button class="aj-reset" type="button">Restablecer ajustes</button></div>';
 
     var btn = host.querySelector('.aj-btn'), panel = host.querySelector('.aj-panel');
+    var fsIn = host.querySelector('#aj-fs'), fsOut = host.querySelector('output');
+    var showFs = function () { fsIn.value = st.fs; fsOut.textContent = st.fs + ' %'; fsIn.setAttribute('aria-valuetext', st.fs + ' %'); };
+    fsIn.addEventListener('input', function () { st.fs = Number(fsIn.value); showFs(); apply(); });
     var sync = function () {
+      showFs();
       host.querySelectorAll('input[type=radio]').forEach(function (i) { i.checked = st[i.name] === i.value; });
       host.querySelector('[name=contrast]').checked = !!st.contrast;
       host.querySelector('[name=font]').checked = st.font === 'system';
@@ -65,7 +70,7 @@
       else st[i.name] = i.checked;
       apply();
     });
-    panel.querySelector('.aj-reset').addEventListener('click', function () { st = { theme: 'auto', size: 'm' }; apply(); sync(); });
+    panel.querySelector('.aj-reset').addEventListener('click', function () { st = { theme: 'auto', fs: 100 }; apply(); sync(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(true); });
     document.addEventListener('click', function (e) { if (!panel.hidden && !host.contains(e.target)) close(false); });
     apply();
