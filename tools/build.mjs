@@ -44,6 +44,23 @@ const UI = {
     [{ en: '5–6×', es: '5–6×' }, { en: 'more output after redesigning the pay model', es: 'más producción tras rediseñar el modelo de pago' }],
     [{ en: '1,000+', es: '1,000+' }, { en: 'products in a store I manage', es: 'productos en una tienda que administro' }],
   ],
+  feat: {
+    chip: { en: 'In development, with a real client', es: 'En desarrollo, con cliente real' },
+    text: {
+      en: 'My largest project: a management system for a day center with 18 modules (HR, accounting, inventory, occupational therapy, sponsors and family portals). I found the client, run the meetings, defined the modules, write the user stories and manage the sprints, and I also develop the system.',
+      es: 'Mi proyecto más grande: un sistema de gestión para un centro diurno con 18 módulos (RR. HH., contabilidad, inventario, terapia ocupacional, patrocinadores y portales para familias). Busqué al cliente, dirijo las reuniones, definí los módulos, escribo las historias de usuario y gestiono los sprints, y además desarrollo el sistema.',
+    },
+    link: { en: 'See the project and its video', es: 'Ver el proyecto y su video' },
+  },
+  methodH: { en: 'How I run a project', es: 'Cómo gestiono un proyecto' },
+  methodSub: { en: 'The process I follow on Coraje y Esperanza, from the first meeting to delivery.', es: 'El proceso que sigo en Coraje y Esperanza, desde la primera reunión hasta la entrega.' },
+  method: [
+    [{ en: 'Meet the client', es: 'Reunirme con el cliente' }, { en: 'I run the meetings and keep the relationship, so the real need is clear.', es: 'Dirijo las reuniones y mantengo la relación, para tener clara la necesidad real.' }],
+    [{ en: 'Gather requirements', es: 'Levantar requisitos' }, { en: 'Functional, non-functional and security requirements, agreed directly with the client.', es: 'Requisitos funcionales, no funcionales y de seguridad, acordados directamente con el cliente.' }],
+    [{ en: 'Define modules and stories', es: 'Definir módulos e historias' }, { en: 'I split the system into modules and write the user stories for each one.', es: 'Divido el sistema en módulos y escribo las historias de usuario de cada uno.' }],
+    [{ en: 'Plan sprints', es: 'Planificar sprints' }, { en: 'Priorities and sprints managed in YouTrack.', es: 'Prioridades y sprints gestionados en YouTrack.' }],
+    [{ en: 'Build and deliver', es: 'Construir y entregar' }, { en: 'I develop the system and deliver value incrementally to a live client.', es: 'Desarrollo el sistema y entrego valor de forma incremental a un cliente real.' }],
+  ],
   profileH: { en: 'Professional profile', es: 'Perfil profesional' },
   profile: {
     en: [
@@ -342,10 +359,28 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
         <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <div class="feature">
+        <div class="logo logo-sm"><img src="/assets/logos/${projects[0].logo}" alt="${esc(tx(projects[0].logoAlt, l))}" width="160" height="160"></div>
+        <div>
+          <span class="chip">${tx(UI.feat.chip, l)}</span>
+          <h2><a href="${projPath(l, projects[0])}">${esc(tx(projects[0].title, l))}</a></h2>
+          <p>${tx(UI.feat.text, l)}</p>
+          <ul class="nums">${projects[0].nums.map(([n, lab]) => `<li><strong>${n}</strong> ${esc(tx(lab, l))}</li>`).join('')}</ul>
+          <a class="btn solid" href="${projPath(l, projects[0])}">${tx(UI.feat.link, l)}</a>
+        </div>
+      </div>
       <dl class="facts">
 ${UI.facts.map(([n, lab]) => `        <div><dt>${tx(n, l)}</dt><dd>${tx(lab, l)}</dd></div>`).join('\n')}
       </dl>
     </div>
+
+    <section id="${l === 'en' ? 'method' : 'metodo'}">
+      <h2>${tx(UI.methodH, l)}</h2>
+      <p class="sub">${tx(UI.methodSub, l)}</p>
+      <ol class="steps">
+${UI.method.map(([h, t]) => `        <li><h3>${tx(h, l)}</h3><p>${tx(t, l)}</p></li>`).join('\n')}
+      </ol>
+    </section>
 
     <section id="${id('profile')}">
       <h2>${tx(UI.profileH, l)}</h2>

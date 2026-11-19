@@ -170,3 +170,23 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:1.5rem 0 3rem;co
   .pn{grid-template-columns:1fr}.pn .next{text-align:left}
   .aj-panel{position:fixed;left:1.25rem;right:1.25rem;top:4.2rem;width:auto}
 }
+
+/* Proyecto principal y proceso de gestión (inicio) */
+.feature{display:flex;gap:1.5rem;align-items:flex-start;margin:2.5rem 0 0;padding:1.5rem;background:var(--surface);border:1px solid var(--primary);border-radius:14px}
+.feature .logo-sm{width:8rem}
+.feature h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:.15rem 0 .5rem}
+.feature h2 a{color:var(--ink);text-decoration:none}
+.feature h2 a:hover{color:var(--primary);text-decoration:underline}
+.feature p{max-width:46rem}
+.feature .btn{margin-top:.25rem}
+.feature+.facts{margin-top:1.5rem}
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:0;border-top:1px solid var(--line)}
+.steps li{counter-increment:s;padding:1.1rem 1rem 1.1rem 0;position:relative}
+.steps li+li{padding-left:1rem;border-left:1px solid var(--line)}
+.steps li::before{content:counter(s);display:block;font-family:var(--head);font-weight:800;font-size:1.6rem;line-height:1;color:var(--primary);margin-bottom:.5rem}
+.steps h3{font-size:1.05rem;margin-bottom:.35rem}
+.steps p{color:var(--muted);font-size:.95rem;margin:0}
+@media (max-width:42rem){
+  .feature{flex-direction:column}
+  .steps li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+}
