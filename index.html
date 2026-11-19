@@ -7,7 +7,7 @@
   <meta name="description" content="Estudiante avanzado de Ingeniería en Sistemas en Costa Rica: gestión de proyectos y operaciones, liderazgo de equipos y desarrollo full-stack (.NET, Java, React). Remoto.">
   <meta name="author" content="Deiby Vargas Chaves">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#4f46e5">
+  <meta name="theme-color" content="#0A5C73">
   <link rel="canonical" href="https://deibyv30884.github.io/">
 
   <meta property="og:type" content="website">
@@ -47,35 +47,47 @@
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/init.js"></script>
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
-
-  <header class="hero">
-    <p class="eyebrow">Gestión de Proyectos y Operaciones · Liderazgo de Equipos · Mejora de Procesos</p>
-    <h1>Deiby Vargas Chaves<span class="dot">.</span></h1>
-    <p class="role">Ingeniería en Sistemas (en curso, ~70 %) · Desarrollador Full-Stack (.NET, Java, React) · Costa Rica, disponible para trabajo remoto</p>
-    <p class="lead">Organizo procesos, lidero equipos y llevo proyectos desde el levantamiento de requerimientos hasta la entrega. Con una base técnica sólida como desarrollador <strong>.NET, Java y React</strong>, hablo el idioma del cliente y el del equipo técnico.</p>
-    <nav aria-label="Principal">
-      <a href="#perfil">Perfil</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#sistema">Sistema en video</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#habilidades">Habilidades</a>
-      <a href="#english">English</a>
-      <a href="https://github.com/DeibyV30884" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/deiby-vargas-chaves-239839258/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:deibyvargaschaves@gmail.com">Contacto</a>
-    </nav>
-    <ul class="stats">
-      <li><strong>3</strong> personas lideradas</li>
-      <li><strong>5–6×</strong> producción tras rediseñar el modelo de pago</li>
-      <li><strong>1,000+</strong> productos en tienda gestionada</li>
-    </ul>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/">Deiby Vargas Chaves</a>
+      <nav aria-label="Principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#english">English</a>
+        <a href="mailto:deibyvargaschaves@gmail.com">Contacto</a>
+      </nav>
+      <div class="ajustes" id="ajustes"></div>
+    </div>
   </header>
 
-  <main id="contenido">
+  <main id="contenido" class="wrap">
+    <div class="hero">
+      <h1>Deiby Vargas Chaves</h1>
+      <p class="role">Gestión de proyectos y operaciones, liderazgo de equipos y mejora de procesos.</p>
+      <p class="role">Estudiante de Ingeniería en Sistemas (≈70 % completado) y desarrollador full-stack en .NET, Java y React. Costa Rica, disponible para trabajo remoto.</p>
+      <p class="lead">Organizo procesos, lidero equipos y llevo proyectos desde el levantamiento de requerimientos hasta la entrega. Con una base técnica sólida, hablo el idioma del cliente y el del equipo técnico.</p>
+      <div class="cta">
+        <a class="btn solid" href="#proyectos">Ver proyectos en video</a>
+        <a class="btn" href="mailto:deibyvargaschaves@gmail.com">Escribirme</a>
+        <a class="btn" href="https://www.linkedin.com/in/deiby-vargas-chaves-239839258/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/DeibyV30884" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <dl class="facts">
+        <div><dt>3</dt><dd>personas lideradas en operaciones</dd></div>
+        <div><dt>5–6×</dt><dd>más producción tras rediseñar el modelo de pago</dd></div>
+        <div><dt>1,000+</dt><dd>productos en una tienda que administro</dd></div>
+      </dl>
+    </div>
+
     <section id="perfil">
       <h2>Perfil profesional</h2>
       <p class="prose">Profesional en Ingeniería en Sistemas con experiencia práctica liderando un equipo pequeño, organizando procesos y gestionando proyectos desde el levantamiento de requerimientos hasta la entrega. También tengo experiencia comercial: capté clientes desde cero con llamadas en frío, definí precios, preparé propuestas y cerré ventas. Asumo responsabilidad, le doy orden a la forma de trabajar y me comunico directamente con clientes y personas involucradas.</p>
@@ -84,122 +96,42 @@
 
     <section id="proyectos">
       <h2>Proyectos</h2>
-      <div class="grid">
-        <article class="card featured">
-          <span class="badge">En desarrollo · Cliente real</span>
-          <h3>Coraje y Esperanza · Sistema de Gestión para Guardería</h3>
-          <p>Plataforma de varios módulos (RR. HH., inventario, contabilidad, patrocinadores, portales para familias y beneficiarios). Tengo a cargo las decisiones técnicas y de producto, levanto requerimientos funcionales, no funcionales y de seguridad directamente con el cliente y gestiono sprints y prioridades en YouTrack, entregando valor de forma incremental. Seguridad con autenticación JWT, autenticación de dos factores (2FA) y rutas protegidas por roles.</p>
-          <ul class="tags"><li>.NET 10</li><li>React</li><li>PostgreSQL / SQL Server</li><li>JWT</li><li>2FA</li><li>YouTrack</li></ul>
-          <div class="links"><a href="#sistema">Ver el sistema en video →</a></div>
-        </article>
-        <article class="card">
-          <span class="badge">Mensajería para restaurantes</span>
-          <h3>Plataforma Interna de Entregas</h3>
-          <p>Identifiqué una necesidad operativa y construí la aplicación de principio a fin: seguimiento de pedidos en vivo para clientes y personal, mapa en tiempo real y verificación con código de recogida. Todas las rutas protegidas con JWT.</p>
-          <ul class="tags"><li>.NET 8</li><li>React</li><li>Leaflet</li><li>JWT</li></ul>
-          <div class="links"><a href="#demo-entregas">Ver en video →</a></div>
-        </article>
-        <article class="card">
-          <h3>Sistema de Citas y Expedientes Médicos</h3>
-          <p>Aplicación web con roles (administrador, secretaria, doctor, paciente) para agilizar la programación de citas, los expedientes médicos y las recetas.</p>
-          <ul class="tags"><li>Java</li><li>Spring Boot</li><li>Thymeleaf</li></ul>
-          <div class="links"><a href="#demo-citas">Ver en video →</a></div>
-        </article>
-        <article class="card">
-          <h3>AlimenTICO · Plataforma de Donación de Comida</h3>
-          <p>Plataforma que conecta restaurantes con excedentes de comida con personas que la necesitan, para reducir el desperdicio y generar impacto social.</p>
-          <ul class="tags"><li>PHP</li><li>MVC</li><li>MySQL</li></ul>
-          <div class="links"><a href="#demo-alimentico">Ver en video →</a></div>
-        </article>
-        <article class="card">
-          <h3>Sistema de Gestión para Farmacia</h3>
-          <p>Aplicación de escritorio CRUD para productos, clientes, empleados y ventas, aplicando principios SOLID para un código mantenible y escalable.</p>
-          <ul class="tags"><li>Java Desktop</li><li>MVC</li><li>SOLID</li></ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="sistema">
-      <h2>El sistema en acción</h2>
-      <p class="sub">Recorrido por el sistema de gestión del Centro Diurno Coraje y Esperanza: tutoriales guiados y centro de ayuda integrados, modo oscuro, creación de usuarios con roles y permisos, y módulos de recursos humanos, contabilidad, donaciones, inventario y terapia ocupacional. Cada rol solo ve lo que le corresponde. Todos los datos mostrados son de demostración.</p>
-      <video class="player" controls preload="metadata" playsinline poster="assets/coraje-esperanza-poster.jpg" aria-label="Recorrido en video por el sistema de gestión Coraje y Esperanza, con datos de demostración">
-        <source src="assets/coraje-esperanza-demo.mp4" type="video/mp4">
-        Tu navegador no puede reproducir este video.
-      </video>
-      <p class="aviso"><strong>Aviso:</strong> todos los datos que aparecen en este video son <strong>datos de demostración (demo)</strong>. Los nombres de personas, usuarios, correos, cuentas, montos y registros son ficticios y no corresponden a información real del centro ni de sus beneficiarios.</p>
-      <details class="trans">
-        <summary>Qué se ve en el video (descripción en texto)</summary>
-        <ul>
-          <li><strong>Tutoriales y ayuda:</strong> recorrido guiado paso a paso la primera vez que se entra a cada pantalla y centro de ayuda con buscador y la opción "Mostrarme cómo".</li>
-          <li><strong>Preferencias:</strong> tema claro u oscuro guardado en la cuenta de cada persona.</li>
-          <li><strong>Gestión de usuarios (RR. HH.):</strong> creación de una cuenta de prueba con rol y permisos; la contraseña temporal se muestra una sola vez.</li>
-          <li><strong>Contabilidad y donaciones:</strong> cuentas por fondo, movimientos, resumen económico, cuentas corrientes y recibos de donación.</li>
-          <li><strong>Inventario y bodega:</strong> alertas de stock bajo y trazabilidad.</li>
-          <li><strong>Terapia ocupacional:</strong> beneficiarios, intervenciones, indicadores por habilidad y asistencia diaria.</li>
-          <li><strong>Control de acceso por roles:</strong> cada rol (RR. HH., contador, terapeuta) ve solo los módulos que le corresponden.</li>
-        </ul>
-      </details>
-    </section>
-
-    <section id="demos">
-      <h2>Más proyectos en acción</h2>
-      <p class="sub">Recorridos grabados de las aplicaciones corriendo en un entorno de pruebas. En los tres videos todos los datos son de demostración (demo).</p>
-
-      <article class="demo" id="demo-entregas">
-        <h3>Plataforma Interna de Entregas</h3>
-        <video class="player" controls preload="none" playsinline poster="assets/entregas-poster.jpg" aria-label="Recorrido en video por la plataforma de entregas con datos de demostración">
-          <source src="assets/entregas-demo.mp4" type="video/mp4">
-          Tu navegador no puede reproducir este video.
-        </video>
-        <p class="aviso"><strong>Aviso:</strong> usuarios, pedidos, restaurantes y montos son <strong>datos de demostración (demo)</strong>; no corresponden a personas ni negocios reales.</p>
-        <details class="trans">
-          <summary>Qué se ve en el video (descripción en texto)</summary>
-          <ul>
-            <li><strong>Cliente:</strong> busca restaurantes, elige un producto, confirma el pedido con la dirección en el mapa, ve el costo de envío y el total, y sigue el pedido.</li>
-            <li><strong>Restaurante:</strong> recibe el pedido, lo acepta, asigna un repartidor disponible y consulta el mapa de repartidores y la gestión de productos.</li>
-            <li><strong>Repartidor:</strong> acepta el pedido, ve la ruta en el mapa con indicaciones y confirma la entrega con el código del cliente.</li>
-            <li><strong>Administrador:</strong> estadísticas por periodo, gestión de usuarios y recarga de saldo.</li>
-          </ul>
-          <p>Tecnologías: .NET 8 (API), React, Leaflet, SQL Server, autenticación JWT y rutas protegidas por rol.</p>
-        </details>
-      </article>
-
-      <article class="demo" id="demo-citas">
-        <h3>Sistema de Citas y Expedientes Médicos</h3>
-        <video class="player" controls preload="none" playsinline poster="assets/citas-poster.jpg" aria-label="Recorrido en video por el sistema de citas y expedientes médicos con datos ficticios">
-          <source src="assets/citas-demo.mp4" type="video/mp4">
-          Tu navegador no puede reproducir este video.
-        </video>
-        <p class="aviso"><strong>Aviso:</strong> pacientes, citas, expedientes y usuarios son <strong>datos de demostración (demo)</strong> y ficticios; no hay información médica ni personal real.</p>
-        <details class="trans">
-          <summary>Qué se ve en el video (descripción en texto)</summary>
-          <ul>
-            <li><strong>Secretaría:</strong> listado y búsqueda de pacientes, agenda de citas y registro de una nueva cita.</li>
-            <li><strong>Médico:</strong> resumen del día, atención de la cita con los antecedentes del paciente, observaciones, tratamiento y expedientes.</li>
-            <li><strong>Paciente:</strong> consulta de sus citas y agendamiento en línea.</li>
-            <li><strong>Administrador:</strong> reporte de usuarios por rol y gestión de usuarios.</li>
-          </ul>
-          <p>Tecnologías: Java, Spring Boot, Thymeleaf, MySQL y seguridad por roles. Interfaz en español e inglés.</p>
-        </details>
-      </article>
-
-      <article class="demo" id="demo-alimentico">
-        <h3>AlimenTICO · Donación de Comida</h3>
-        <video class="player" controls preload="none" playsinline poster="assets/alimentico-poster.jpg" aria-label="Recorrido en video por la plataforma AlimenTICO de donación de comida con datos de demostración">
-          <source src="assets/alimentico-demo.mp4" type="video/mp4">
-          Tu navegador no puede reproducir este video.
-        </video>
-        <p class="aviso"><strong>Aviso:</strong> restaurantes, beneficiarios, donaciones y correos son <strong>datos de demostración (demo)</strong>; no corresponden a negocios ni personas reales.</p>
-        <details class="trans">
-          <summary>Qué se ve en el video (descripción en texto)</summary>
-          <ul>
-            <li><strong>Restaurante:</strong> publica una donación de alimentos, revisa sus donaciones y administra el perfil con horarios y ubicación.</li>
-            <li><strong>Beneficiario:</strong> busca donaciones disponibles, ve el detalle, la reserva y consulta su código de retiro.</li>
-            <li><strong>Administrador:</strong> resumen general, gestión de beneficiarios y de restaurantes aliados.</li>
-          </ul>
-          <p>Tecnologías: PHP con patrón MVC y MySQL, ejecutado en Docker.</p>
-        </details>
-      </article>
+      <p class="sub">Cada proyecto tiene su propia página con un recorrido en video de la aplicación funcionando. Todos los datos que aparecen son de demostración.</p>
+      <ul class="rows">
+        <li class="row lead-row">
+          <img class="thumb" src="/assets/coraje-esperanza-poster.jpg" alt="" width="1280" height="720" loading="lazy">
+          <div>
+            <span class="chip">En desarrollo, con cliente real</span>
+            <h3><a href="/proyectos/coraje-esperanza.html">Coraje y Esperanza</a></h3>
+            <p>Sistema de gestión para un centro diurno, con varios módulos (RR. HH., inventario, contabilidad, patrocinadores y portales para familias y beneficiarios). Tengo a cargo las decisiones técnicas y de producto, levanto los requerimientos con el cliente y gestiono sprints y prioridades en YouTrack. Seguridad con JWT, 2FA y rutas protegidas por rol.</p>
+            <ul class="tags"><li>.NET 10</li><li>React</li><li>PostgreSQL</li><li>JWT</li><li>2FA</li><li>YouTrack</li></ul>
+          </div>
+        </li>
+        <li class="row">
+          <img class="thumb" src="/assets/entregas-poster.jpg" alt="" width="1280" height="720" loading="lazy">
+          <div>
+            <h3><a href="/proyectos/entregas.html">Plataforma Interna de Entregas</a></h3>
+            <p>Identifiqué una necesidad operativa de una mensajería para restaurantes y construí la aplicación de principio a fin: seguimiento de pedidos en vivo, mapa en tiempo real y verificación con código de entrega. Todas las rutas protegidas con JWT.</p>
+            <ul class="tags"><li>.NET 8</li><li>React</li><li>Leaflet</li><li>SQL Server</li><li>JWT</li></ul>
+          </div>
+        </li>
+        <li class="row">
+          <img class="thumb" src="/assets/citas-poster.jpg" alt="" width="1280" height="720" loading="lazy">
+          <div>
+            <h3><a href="/proyectos/citas-expedientes.html">Sistema de Citas y Expedientes Médicos</a></h3>
+            <p>Aplicación web con roles (administrador, secretaría, médico y paciente) para agilizar la programación de citas, los expedientes médicos y las recetas.</p>
+            <ul class="tags"><li>Java</li><li>Spring Boot</li><li>Thymeleaf</li><li>MySQL</li></ul>
+          </div>
+        </li>
+        <li class="row">
+          <img class="thumb" src="/assets/alimentico-poster.jpg" alt="" width="1280" height="720" loading="lazy">
+          <div>
+            <h3><a href="/proyectos/alimentico.html">AlimenTICO · Donación de Comida</a></h3>
+            <p>Plataforma que conecta restaurantes con excedentes de comida con personas que la necesitan, para reducir el desperdicio y generar impacto social.</p>
+            <ul class="tags"><li>PHP</li><li>MVC</li><li>MySQL</li><li>Docker</li></ul>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section id="experiencia">
@@ -244,7 +176,9 @@
     </section>
   </main>
 
-  <footer>© <span id="year"></span> Deiby Vargas Chaves · <a href="mailto:deibyvargaschaves@gmail.com">deibyvargaschaves@gmail.com</a> · Costa Rica</footer>
-  <script src="app.js"></script>
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Deiby Vargas Chaves · <a href="mailto:deibyvargaschaves@gmail.com">deibyvargaschaves@gmail.com</a> · Costa Rica</div>
+  </footer>
+  <script src="/app.js"></script>
 </body>
 </html>
