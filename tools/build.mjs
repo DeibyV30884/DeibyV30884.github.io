@@ -52,6 +52,7 @@ const UI = {
     },
     link: { en: 'See the project and its video', es: 'Ver el proyecto y su video' },
   },
+  photoAlt: { en: 'Photo of Deiby Vargas Chaves', es: 'Foto de Deiby Vargas Chaves' },
   methodH: { en: 'How I run a project', es: 'Cómo gestiono un proyecto' },
   methodSub: { en: 'The process I follow on Coraje y Esperanza, from the first meeting to delivery.', es: 'El proceso que sigo en Coraje y Esperanza, desde la primera reunión hasta la entrega.' },
   method: [
@@ -251,7 +252,7 @@ const mmss = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 const personLd = (l) => ({
-  '@context': 'https://schema.org', '@type': 'Person', name: 'Deiby Vargas Chaves', url: SITE + '/', email: `mailto:${EMAIL}`,
+  '@context': 'https://schema.org', '@type': 'Person', name: 'Deiby Vargas Chaves', url: SITE + '/', image: SITE + '/assets/deiby-vargas-chaves.jpg', email: `mailto:${EMAIL}`,
   jobTitle: 'Project & Operations Management / Full-Stack Developer',
   description: l === 'en'
     ? 'Advanced Systems Engineering student with experience leading teams, managing projects from requirements gathering to delivery and building full-stack systems in .NET, Java and React.'
@@ -361,6 +362,9 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
   ${header(l, null)}
   <main id="contenido" class="wrap">
     <div class="hero">
+      <div class="hero-top">
+        <img class="portrait" src="/assets/deiby-vargas-chaves.jpg" alt="${esc(tx(UI.photoAlt, l))}" width="480" height="480" fetchpriority="high">
+        <div class="hero-text">
       <h1>Deiby Vargas Chaves</h1>
       <p class="role">${tx(UI.h1role1, l)}</p>
       <p class="role">${tx(UI.h1role2, l)}</p>
@@ -369,6 +373,8 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
         <a class="btn" href="mailto:${EMAIL}">${tx(UI.ctaMail, l)}</a>
         <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
+      </div>
+        </div>
       </div>
       <div class="feature">
         <div class="logo logo-sm"><img src="/assets/logos/${projects[0].logo}" alt="${esc(tx(projects[0].logoAlt, l))}" width="160" height="160"></div>
@@ -408,7 +414,12 @@ ${rows}
 
     <section id="${id('profile')}">
       <h2>${tx(UI.profileH, l)}</h2>
-${tx(UI.profile, l).map((p) => `      <p class="prose">${p}</p>`).join('\n')}
+      <div class="about">
+        <img class="portrait portrait-sm" src="/assets/deiby-vargas-chaves.jpg" alt="${esc(tx(UI.photoAlt, l))}" width="480" height="480" loading="lazy">
+        <div>
+${tx(UI.profile, l).map((p) => `          <p class="prose">${p}</p>`).join('\n')}
+        </div>
+      </div>
     </section>
 
     <section id="${id('skills')}">
