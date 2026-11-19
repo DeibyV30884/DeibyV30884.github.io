@@ -33,6 +33,9 @@ const UI = {
   lead: { en: "I organize processes, lead teams and take projects from requirements gathering to delivery. With a solid technical foundation, I speak both the client's language and the technical team's.", es: 'Organizo procesos, lidero equipos y llevo proyectos desde el levantamiento de requerimientos hasta la entrega. Con una base técnica sólida, hablo el idioma del cliente y el del equipo técnico.' },
   ctaProjects: { en: 'See projects on video', es: 'Ver proyectos en video' },
   ctaMail: { en: 'Email me', es: 'Escribirme' },
+  ctaCv: { en: 'Download CV (PDF)', es: 'Descargar CV (PDF)' },
+  cvFile: { en: '/assets/cv/Deiby-Vargas-Chaves-CV-Project-Management-EN.pdf', es: '/assets/cv/Deiby-Vargas-Chaves-CV-Gestion-de-Proyectos-ES.pdf' },
+  cvLabel: { en: 'CV', es: 'CV' },
   facts: [
     [{ en: '3', es: '3' }, { en: 'people led in operations', es: 'personas lideradas en operaciones' }],
     [{ en: '5–6×', es: '5–6×' }, { en: 'more output after redesigning the pay model', es: 'más producción tras rediseñar el modelo de pago' }],
@@ -286,6 +289,7 @@ const header = (l, current) => {
 
 const footer = (l) => `<footer>
     <div class="wrap">© <span id="year">2026</span> Deiby Vargas Chaves · <a href="mailto:${EMAIL}">${EMAIL}</a> · ${tx(UI.footer, l)} ·
+    <a href="${tx(UI.cvFile, l)}" download>${tx(UI.cvLabel, l)} (PDF)</a> ·
     <a href="${GITHUB}" target="_blank" rel="noopener">GitHub</a> ·
     <a href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a></div>
   </footer>
@@ -328,6 +332,7 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
       <p class="lead">${tx(UI.lead, l)}</p>
       <div class="cta">
         <a class="btn solid" href="#${id('projects')}">${tx(UI.ctaProjects, l)}</a>
+        <a class="btn" href="${tx(UI.cvFile, l)}" download>${tx(UI.ctaCv, l)}</a>
         <a class="btn" href="mailto:${EMAIL}">${tx(UI.ctaMail, l)}</a>
         <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
