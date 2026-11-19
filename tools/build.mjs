@@ -34,11 +34,11 @@ const UI = {
   ctaProjects: { en: 'See projects on video', es: 'Ver proyectos en video' },
   ctaMail: { en: 'Email me', es: 'Escribirme' },
   // El CV principal es el de inglés en las dos versiones del sitio; en español se ofrece además el CV en español.
-  ctaCv: { en: 'Download CV (PDF)', es: 'Descargar CV (PDF, inglés)' },
+  ctaCv: { en: 'Download CV (PDF)', es: 'Descargar CV en inglés (PDF)' },
   cvFile: { en: '/assets/cv/Deiby-Vargas-Chaves-CV-Project-Management-EN.pdf', es: '/assets/cv/Deiby-Vargas-Chaves-CV-Project-Management-EN.pdf' },
   cvEs: '/assets/cv/Deiby-Vargas-Chaves-CV-Gestion-de-Proyectos-ES.pdf',
-  ctaCvEs: { en: '', es: 'CV en español (PDF)' },
-  cvLabel: { en: 'CV', es: 'CV (inglés)' },
+  ctaCvEs: { en: '', es: 'Descargar CV en español (PDF)' },
+  cvLabel: { en: 'CV (PDF)', es: 'CV en inglés (PDF)' },
   facts: [
     [{ en: '3', es: '3' }, { en: 'people led in operations', es: 'personas lideradas en operaciones' }],
     [{ en: '5–6×', es: '5–6×' }, { en: 'more output after redesigning the pay model', es: 'más producción tras rediseñar el modelo de pago' }],
@@ -292,8 +292,8 @@ const header = (l, current) => {
 
 const footer = (l) => `<footer>
     <div class="wrap">© <span id="year">2026</span> Deiby Vargas Chaves · <a href="mailto:${EMAIL}">${EMAIL}</a> · ${tx(UI.footer, l)} ·
-    <a href="${tx(UI.cvFile, l)}" download>${tx(UI.cvLabel, l)} (PDF)</a> ·${l === 'es' ? `
-    <a href="${UI.cvEs}" download>CV (español)</a> ·` : ''}
+    <a href="${tx(UI.cvFile, l)}" download>${tx(UI.cvLabel, l)}</a> ·${l === 'es' ? `
+    <a href="${UI.cvEs}" download>CV en español (PDF)</a> ·` : ''}
     <a href="${GITHUB}" target="_blank" rel="noopener">GitHub</a> ·
     <a href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a></div>
   </footer>
