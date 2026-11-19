@@ -224,4 +224,7 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:1.5rem 0 3rem;co
 .row{grid-template-columns:minmax(0,15rem) minmax(0,1fr)}
 .feature .logo-sm{width:9.5rem}
 .phead .logo-sm{width:8.5rem}
-@media (max-width:42rem){.row .logo{width:14rem}}
+@media (max-width:42rem){
+  .row{grid-template-columns:minmax(0,1fr)}
+  .row .logo{width:min(14rem,100%)}
+}
