@@ -102,11 +102,13 @@
           <h3>Sistema de Citas y Expedientes Médicos</h3>
           <p>Aplicación web con roles (administrador, secretaria, doctor, paciente) para agilizar la programación de citas, los expedientes médicos y las recetas.</p>
           <ul class="tags"><li>Java</li><li>Spring Boot</li><li>Thymeleaf</li></ul>
+          <div class="links"><a href="#demo-citas">Ver en video →</a></div>
         </article>
         <article class="card">
           <h3>AlimenTICO · Plataforma de Donación de Comida</h3>
           <p>Plataforma que conecta restaurantes con excedentes de comida con personas que la necesitan, para reducir el desperdicio y generar impacto social.</p>
           <ul class="tags"><li>PHP</li><li>MVC</li><li>MySQL</li></ul>
+          <div class="links"><a href="#demo-alimentico">Ver en video →</a></div>
         </article>
         <article class="card">
           <h3>Sistema de Gestión para Farmacia</h3>
@@ -136,6 +138,67 @@
           <li><strong>Control de acceso por roles:</strong> cada rol (RR. HH., contador, terapeuta) ve solo los módulos que le corresponden.</li>
         </ul>
       </details>
+    </section>
+
+    <section id="demos">
+      <h2>Más proyectos en acción</h2>
+      <p class="sub">Recorridos grabados de las aplicaciones corriendo en un entorno de pruebas. En los tres videos todos los datos son de demostración (demo).</p>
+
+      <article class="demo" id="demo-entregas">
+        <h3>Plataforma Interna de Entregas</h3>
+        <video class="player" controls preload="none" playsinline poster="assets/entregas-poster.jpg" aria-label="Recorrido en video por la plataforma de entregas con datos de demostración">
+          <source src="assets/entregas-demo.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <p class="aviso"><strong>Aviso:</strong> usuarios, pedidos, restaurantes y montos son <strong>datos de demostración (demo)</strong>; no corresponden a personas ni negocios reales.</p>
+        <details class="trans">
+          <summary>Qué se ve en el video (descripción en texto)</summary>
+          <ul>
+            <li><strong>Cliente:</strong> busca restaurantes, elige un producto, confirma el pedido con la dirección en el mapa, ve el costo de envío y el total, y sigue el pedido.</li>
+            <li><strong>Restaurante:</strong> recibe el pedido, lo acepta, asigna un repartidor disponible y consulta el mapa de repartidores y la gestión de productos.</li>
+            <li><strong>Repartidor:</strong> acepta el pedido, ve la ruta en el mapa con indicaciones y confirma la entrega con el código del cliente.</li>
+            <li><strong>Administrador:</strong> estadísticas por periodo, gestión de usuarios y recarga de saldo.</li>
+          </ul>
+          <p>Tecnologías: .NET 8 (API), React, Leaflet, SQL Server, autenticación JWT y rutas protegidas por rol.</p>
+        </details>
+      </article>
+
+      <article class="demo" id="demo-citas">
+        <h3>Sistema de Citas y Expedientes Médicos</h3>
+        <video class="player" controls preload="none" playsinline poster="assets/citas-poster.jpg" aria-label="Recorrido en video por el sistema de citas y expedientes médicos con datos ficticios">
+          <source src="assets/citas-demo.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <p class="aviso"><strong>Aviso:</strong> pacientes, citas, expedientes y usuarios son <strong>datos de demostración (demo)</strong> y ficticios; no hay información médica ni personal real.</p>
+        <details class="trans">
+          <summary>Qué se ve en el video (descripción en texto)</summary>
+          <ul>
+            <li><strong>Secretaría:</strong> listado y búsqueda de pacientes, agenda de citas y registro de una nueva cita.</li>
+            <li><strong>Médico:</strong> resumen del día, atención de la cita con los antecedentes del paciente, observaciones, tratamiento y expedientes.</li>
+            <li><strong>Paciente:</strong> consulta de sus citas y agendamiento en línea.</li>
+            <li><strong>Administrador:</strong> reporte de usuarios por rol y gestión de usuarios.</li>
+          </ul>
+          <p>Tecnologías: Java, Spring Boot, Thymeleaf, MySQL y seguridad por roles. Interfaz en español e inglés.</p>
+        </details>
+      </article>
+
+      <article class="demo" id="demo-alimentico">
+        <h3>AlimenTICO · Donación de Comida</h3>
+        <video class="player" controls preload="none" playsinline poster="assets/alimentico-poster.jpg" aria-label="Recorrido en video por la plataforma AlimenTICO de donación de comida con datos de demostración">
+          <source src="assets/alimentico-demo.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <p class="aviso"><strong>Aviso:</strong> restaurantes, beneficiarios, donaciones y correos son <strong>datos de demostración (demo)</strong>; no corresponden a negocios ni personas reales.</p>
+        <details class="trans">
+          <summary>Qué se ve en el video (descripción en texto)</summary>
+          <ul>
+            <li><strong>Restaurante:</strong> publica una donación de alimentos, revisa sus donaciones y administra el perfil con horarios y ubicación.</li>
+            <li><strong>Beneficiario:</strong> busca donaciones disponibles, ve el detalle, la reserva y consulta su código de retiro.</li>
+            <li><strong>Administrador:</strong> resumen general, gestión de beneficiarios y de restaurantes aliados.</li>
+          </ul>
+          <p>Tecnologías: PHP con patrón MVC y MySQL, ejecutado en Docker.</p>
+        </details>
+      </article>
     </section>
 
     <section id="experiencia">

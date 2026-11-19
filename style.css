@@ -52,3 +52,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .trans li{margin-bottom:6px}
 .kw{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:16px 0}
 .kw li{font-size:.82rem;padding:4px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card)}
+
+.demo{margin-top:36px}
+.demo h3{margin:0 0 12px}
