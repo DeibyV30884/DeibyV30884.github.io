@@ -9,10 +9,10 @@
   var T = {
     en: { btn: 'Reading settings', group: 'Reading settings', theme: 'Theme', light: 'Light', dark: 'Dark', auto: 'Automatic', size: 'Font size',
       contrast: 'High contrast', font: 'System font (more neutral and legible)', spacing: 'More space between lines and letters', motion: 'Reduce animations',
-      lang: 'Language', reset: 'Reset settings' },
+      lang: 'Language', reset: 'Reset settings', close: 'Close settings' },
     es: { btn: 'Ajustes de lectura', group: 'Ajustes de lectura', theme: 'Tema', light: 'Claro', dark: 'Oscuro', auto: 'Automático', size: 'Tamaño de letra',
       contrast: 'Contraste alto', font: 'Letra del sistema (más neutra y legible)', spacing: 'Más espacio entre líneas y letras', motion: 'Reducir animaciones',
-      lang: 'Idioma', reset: 'Restablecer ajustes' },
+      lang: 'Idioma', reset: 'Restablecer ajustes', close: 'Cerrar ajustes' },
   }[lang];
 
   // ---- Ajustes de lectura ----
@@ -54,6 +54,9 @@
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 19 9 5l6 14M5.2 14h7.6M16 19l2.5-6 2.5 6M17 17.5h3"/></svg>' +
       '<span>' + T.btn + '</span></button>' +
       '<div class="aj-panel" id="aj-panel" role="group" aria-label="' + T.group + '" hidden>' +
+      '<div class="aj-head"><strong>' + T.group + '</strong>' +
+      '<button class="aj-close" type="button" aria-label="' + T.close + '">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
       seg('lang', T.lang, [['en', 'English'], ['es', 'Español']]) +
       seg('theme', T.theme, [['light', T.light], ['dark', T.dark], ['auto', T.auto]]) +
       '<fieldset><legend><label for="aj-fs">' + T.size + '</label></legend><div class="range"><span class="a-s" aria-hidden="true">A</span>' +
@@ -88,6 +91,7 @@
       else st[i.name] = i.checked;
       apply();
     });
+    panel.querySelector('.aj-close').addEventListener('click', function () { close(true); });
     panel.querySelector('.aj-reset').addEventListener('click', function () { st = { theme: 'auto', fs: 100, lang: st.lang }; apply(); sync(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(true); });
     document.addEventListener('click', function (e) { if (!panel.hidden && !host.contains(e.target)) close(false); });

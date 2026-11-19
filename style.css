@@ -59,6 +59,11 @@ a:hover{text-decoration-thickness:2px}
 .aj-btn svg{width:1.1em;height:1.1em}
 .aj-panel{position:absolute;right:0;top:calc(100% + .6rem);z-index:50;width:min(24rem,calc(100vw - 2.5rem));background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem 1.2rem;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
 .aj-panel[hidden]{display:none}
+.aj-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:-.3rem -.4rem .8rem 0}
+.aj-head strong{font-family:var(--head);font-size:1rem}
+.aj-close{display:grid;place-items:center;width:2.5rem;height:2.5rem;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);cursor:pointer;padding:0}
+.aj-close:hover{border-color:var(--primary);color:var(--primary)}
+.aj-close svg{width:1.1rem;height:1.1rem}
 .aj-panel fieldset{border:0;padding:0;margin:0 0 1rem}
 .aj-panel legend{font-weight:600;font-size:.9rem;margin-bottom:.4rem;padding:0}
 .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
