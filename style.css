@@ -190,3 +190,10 @@ footer{margin-top:4rem;border-top:1px solid var(--line);padding:1.5rem 0 3rem;co
   .feature{flex-direction:column}
   .steps li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
 }
+
+/* Revisión de reclutador: línea de rol, contacto, habilidades en etiquetas */
+.roleline{max-width:46rem;margin:1rem 0 0;padding-left:.9rem;border-left:3px solid var(--primary)}
+.skills .kw{margin:.2rem 0 0}
+.contact{padding-bottom:1rem}
+.contact .cta{margin-top:1rem}
+.job li strong{color:var(--ink)}

@@ -23,9 +23,9 @@ const other = (l) => (l === 'en' ? 'es' : 'en');
 // ------------------------------------------------------------------ textos de la interfaz
 const UI = {
   nav: { projects: { en: 'Projects', es: 'Proyectos' }, experience: { en: 'Experience', es: 'Experiencia' }, skills: { en: 'Skills', es: 'Habilidades' }, contact: { en: 'Contact', es: 'Contacto' } },
-  ids: { profile: { en: 'profile', es: 'perfil' }, projects: { en: 'projects', es: 'proyectos' }, experience: { en: 'experience', es: 'experiencia' }, skills: { en: 'skills', es: 'habilidades' } },
+  ids: { profile: { en: 'profile', es: 'perfil' }, projects: { en: 'projects', es: 'proyectos' }, experience: { en: 'experience', es: 'experiencia' }, skills: { en: 'skills', es: 'habilidades' }, contact: { en: 'contact', es: 'contacto' } },
   skip: { en: 'Skip to content', es: 'Saltar al contenido' },
-  siteTitle: { en: 'Deiby Vargas Chaves | Project & Operations Management · Full-Stack Developer', es: 'Deiby Vargas Chaves | Gestión de Proyectos y Operaciones · Full-Stack' },
+  siteTitle: { en: 'Deiby Vargas Chaves | Project & Operations Management', es: 'Deiby Vargas Chaves | Gestión de Proyectos y Operaciones' },
   siteDesc: { en: 'Advanced Systems Engineering student in Costa Rica: project and operations management, team leadership and full-stack development (.NET, Java, React). Remote.', es: 'Estudiante avanzado de Ingeniería en Sistemas en Costa Rica: gestión de proyectos y operaciones, liderazgo de equipos y desarrollo full-stack (.NET, Java, React). Remoto.' },
   ogDesc: { en: 'Project and operations management, team leadership and full-stack development (.NET, Java, React). Costa Rica, remote.', es: 'Gestión de proyectos y operaciones, liderazgo de equipos y desarrollo full-stack (.NET, Java, React). Costa Rica, remoto.' },
   h1role1: { en: 'Project and operations management, team leadership and process improvement.', es: 'Gestión de proyectos y operaciones, liderazgo de equipos y mejora de procesos.' },
@@ -47,7 +47,7 @@ const UI = {
   feat: {
     chip: { en: 'In development, with a real client', es: 'En desarrollo, con cliente real' },
     text: {
-      en: 'My largest project: a management system for a day center with 18 modules (HR, accounting, inventory, occupational therapy, sponsors and family portals). I found the client, run the meetings, defined the modules, write the user stories and manage the sprints, and I also develop the system.',
+      en: 'My largest project: a management system for a day center with 18 modules (HR, accounting, inventory, occupational therapy, sponsors and family portals). I sourced the client, run the meetings, defined the modules, write the user stories and manage the sprints, and I also develop the system.',
       es: 'Mi proyecto más grande: un sistema de gestión para un centro diurno con 18 módulos (RR. HH., contabilidad, inventario, terapia ocupacional, patrocinadores y portales para familias). Busqué al cliente, dirijo las reuniones, definí los módulos, escribo las historias de usuario y gestiono los sprints, y además desarrollo el sistema.',
     },
     link: { en: 'See the project and its video', es: 'Ver el proyecto y su video' },
@@ -77,19 +77,19 @@ const UI = {
   experienceH: { en: 'Experience', es: 'Experiencia' },
   jobs: [
     {
-      title: { en: 'Operations Associate', es: 'Colaborador de Operaciones' },
+      title: { en: 'Operations Collaborator', es: 'Colaborador de Operaciones' },
       meta: { en: 'Defan S.A. (FVC Jasun) · 2021 – Present (part-time)', es: 'Defan S.A. (FVC Jasun) · 2021 – Actualidad (medio tiempo)' },
       items: {
-        en: ['I lead and coordinate a team of up to 3 people: inventory, delivery logistics and daily operations.', 'I took over a low-performing process and redesigned the pay model from hourly to per-output, increasing output up to 5–6× in the same shift.', "I reorganized the production flow into specialized roles based on each person's speed and experience.", 'I negotiated supplier agreements: credit on raw materials and better prices for bulk purchases.'],
-        es: ['Lidero y coordino un equipo de hasta 3 personas: inventario, logística de entregas y operaciones diarias.', 'Asumí la responsabilidad de un proceso con bajo rendimiento y rediseñé el modelo de pago de por hora a por producción, aumentando la producción hasta 5–6× en el mismo turno.', 'Reorganicé el flujo de producción en roles especializados según la velocidad y experiencia de cada persona.', 'Negocié acuerdos con proveedores: crédito en materia prima y mejores precios por compras al por mayor.'],
+        en: ['I lead and coordinate a team of <strong>up to 3 people</strong>: inventory, delivery logistics and daily operations.', 'I took over a low-performing process and redesigned the pay model from hourly to per-output, increasing output <strong>up to 5–6×</strong> in the same shift.', "I reorganized the production flow into specialized roles based on each person's speed and experience.", 'I negotiated supplier agreements: credit on raw materials and better prices for bulk purchases.'],
+        es: ['Lidero y coordino un equipo de <strong>hasta 3 personas</strong>: inventario, logística de entregas y operaciones diarias.', 'Asumí la responsabilidad de un proceso con bajo rendimiento y rediseñé el modelo de pago de por hora a por producción, aumentando la producción <strong>hasta 5–6×</strong> en el mismo turno.', 'Reorganicé el flujo de producción en roles especializados según la velocidad y experiencia de cada persona.', 'Negocié acuerdos con proveedores: crédito en materia prima y mejores precios por compras al por mayor.'],
       },
     },
     {
-      title: { en: 'Freelance Web Developer and Client Project Lead', es: 'Desarrollador Web Freelance y Responsable de Proyectos de Clientes' },
+      title: { en: 'Freelance Web Developer and Client Project Owner', es: 'Desarrollador Web Freelance y Responsable de Proyectos de Clientes' },
       meta: { en: 'Independent · 2021 – Present', es: 'Independiente · 2021 – Actualidad' },
       items: {
-        en: ['I won clients from scratch through cold calls, set pricing, wrote proposals and closed sales. I manage the relationship from delivery through ongoing support of production sites (<a href="https://gaiatattoo.com" target="_blank" rel="noopener">gaiatattoo.com</a>, <a href="https://drluispicado.com" target="_blank" rel="noopener">drluispicado.com</a>).', 'I delivered and manage a WooCommerce store with over 1,000 products (<a href="https://ds-virtual.com" target="_blank" rel="noopener">ds-virtual.com</a>): site migration, performance and image optimization, and payment gateway integration.', 'I handle security incidents end to end (attack mitigation, backup recovery, Cloudflare configuration) with clear, transparent communication to the client.'],
-        es: ['Capté clientes desde cero con llamadas en frío, definí precios, elaboré propuestas y cerré ventas. Gestiono la relación desde la entrega hasta el soporte continuo de sitios en producción (<a href="https://gaiatattoo.com" target="_blank" rel="noopener">gaiatattoo.com</a>, <a href="https://drluispicado.com" target="_blank" rel="noopener">drluispicado.com</a>).', 'Entregué y administro una tienda WooCommerce con más de 1,000 productos (<a href="https://ds-virtual.com" target="_blank" rel="noopener">ds-virtual.com</a>): migración del sitio, optimización de rendimiento e imágenes e integración de pasarela de pagos.', 'Atiendo incidentes de seguridad de principio a fin (mitigación de ataques, recuperación de respaldos, configuración de Cloudflare) con comunicación clara y transparente al cliente.'],
+        en: ['I won clients from scratch through cold calls, set pricing, wrote proposals and closed sales. I manage the relationship from delivery through ongoing support of production sites (<a href="https://gaiatattoo.com" target="_blank" rel="noopener">gaiatattoo.com</a>, <a href="https://drluispicado.com" target="_blank" rel="noopener">drluispicado.com</a>).', 'I delivered and manage a WooCommerce store with <strong>over 1,000 products</strong> (<a href="https://ds-virtual.com" target="_blank" rel="noopener">ds-virtual.com</a>): site migration, performance and image optimization, and payment gateway integration.', 'I handle security incidents end to end (attack mitigation, backup recovery, Cloudflare configuration) with clear, transparent communication to the client.'],
+        es: ['Capté clientes desde cero con llamadas en frío, definí precios, elaboré propuestas y cerré ventas. Gestiono la relación desde la entrega hasta el soporte continuo de sitios en producción (<a href="https://gaiatattoo.com" target="_blank" rel="noopener">gaiatattoo.com</a>, <a href="https://drluispicado.com" target="_blank" rel="noopener">drluispicado.com</a>).', 'Entregué y administro una tienda WooCommerce con <strong>más de 1,000 productos</strong> (<a href="https://ds-virtual.com" target="_blank" rel="noopener">ds-virtual.com</a>): migración del sitio, optimización de rendimiento e imágenes e integración de pasarela de pagos.', 'Atiendo incidentes de seguridad de principio a fin (mitigación de ataques, recuperación de respaldos, configuración de Cloudflare) con comunicación clara y transparente al cliente.'],
       },
     },
   ],
@@ -103,6 +103,11 @@ const UI = {
     en: "<strong>Education:</strong> Bachelor's degree in Systems Engineering, Universidad Fidélitas, Costa Rica (in progress, ~70% completed; expected graduation in 6 to 12 months). <strong>Languages:</strong> Spanish (native), English (intermediate; strongest in technical and business conversation).",
     es: '<strong>Educación:</strong> Bachillerato en Ingeniería en Sistemas, Universidad Fidélitas, Costa Rica (en curso, ~70 % completado; graduación esperada en 6 a 12 meses). <strong>Idiomas:</strong> español nativo · inglés intermedio.',
   },
+  eduH: { en: 'Education', es: 'Educación' },
+  eduDegree: { en: '<strong>Bachelor\'s degree in Systems Engineering</strong>, Universidad Fidélitas, Costa Rica. In progress, ~70% completed; expected graduation in 6 to 12 months.', es: '<strong>Bachillerato en Ingeniería en Sistemas</strong>, Universidad Fidélitas, Costa Rica. En curso, ~70 % completado; graduación esperada en 6 a 12 meses.' },
+  eduLang: { en: '<strong>Languages:</strong> Spanish (native), English (intermediate; strongest in technical and business conversation).', es: '<strong>Idiomas:</strong> español nativo, inglés intermedio (más fuerte en conversación técnica y de negocios).' },
+  contactH: { en: 'Contact', es: 'Contacto' },
+  contactText: { en: 'Open to project and operations roles, working remotely from Costa Rica. References available on request.', es: 'Disponible para roles de gestión de proyectos y operaciones, en remoto desde Costa Rica. Referencias disponibles a solicitud.' },
   kwH: { en: 'Key skills', es: 'Competencias clave' },
   kw: ['Project management', 'Operations management', 'Team leadership', 'Process improvement', 'Requirements gathering', 'Stakeholder communication', 'Agile sprint management (YouTrack)', 'Vendor negotiation', '.NET / C#', 'Java / Spring Boot', 'React', 'REST APIs', 'PostgreSQL · SQL Server · MySQL · Oracle SQL', 'JWT · 2FA · RBAC', 'WordPress · WooCommerce · Cloudflare'],
   footer: { en: 'Costa Rica', es: 'Costa Rica' },
@@ -128,14 +133,14 @@ const projects = [
   {
     slug: { en: 'coraje-esperanza', es: 'coraje-esperanza' },
     title: { en: 'Coraje y Esperanza', es: 'Coraje y Esperanza' },
-    short: { en: 'Management system for a day center, with several modules (HR, inventory, accounting, sponsors and portals for families and beneficiaries). I found the client, run the meetings, defined the modules, write the user stories and manage sprints in YouTrack, in addition to developing the system and making the technical decisions. Security with JWT, 2FA and role-protected routes.', es: 'Sistema de gestión para un centro diurno, con varios módulos (RR. HH., inventario, contabilidad, patrocinadores y portales para familias y beneficiarios). Busqué al cliente, gestiono las reuniones, definí los módulos, escribo las historias de usuario y gestiono sprints en YouTrack, además de desarrollar el sistema y tomar las decisiones técnicas. Seguridad con JWT, 2FA y rutas protegidas por rol.' },
+    short: { en: 'Management system for a day center, with several modules (HR, inventory, accounting, sponsors and portals for families and beneficiaries). I sourced the client, run the meetings, defined the modules, write the user stories and manage sprints in YouTrack, in addition to developing the system and making the technical decisions. Security with JWT, 2FA and role-protected routes.', es: 'Sistema de gestión para un centro diurno, con varios módulos (RR. HH., inventario, contabilidad, patrocinadores y portales para familias y beneficiarios). Busqué al cliente, gestiono las reuniones, definí los módulos, escribo las historias de usuario y gestiono sprints en YouTrack, además de desarrollar el sistema y tomar las decisiones técnicas. Seguridad con JWT, 2FA y rutas protegidas por rol.' },
     dek: { en: 'Management system for a day center: human resources, accounting, inventory, occupational therapy and portals for families and beneficiaries.', es: 'Sistema de gestión para un centro diurno: recursos humanos, contabilidad, inventario, terapia ocupacional y portales para familias y beneficiarios.' },
     status: { en: 'In development, with a real client', es: 'En desarrollo, con cliente real' },
     logo: 'coraje-esperanza.jpg', logoAlt: { en: 'Logo of Centro Diurno Asociación Coraje y Esperanza', es: 'Logo del Centro Diurno Asociación Coraje y Esperanza' },
-    nums: [[ '18', { en: 'functional modules', es: 'módulos funcionales' }], ['47', { en: 'API controllers', es: 'controladores de API' }], ['5', { en: 'areas of the center covered', es: 'áreas del centro cubiertas' }]],
-    numsShort: [['18', { en: 'modules', es: 'módulos' }], ['47', { en: 'API controllers', es: 'controladores de API' }], ['5', { en: 'center areas', es: 'áreas del centro' }]],
+    nums: [[ '18', { en: 'functional modules', es: 'módulos funcionales' }], ['47', { en: 'API controllers', es: 'controladores de API' }], ['1', { en: 'real client, in development', es: 'cliente real, en desarrollo' }]],
+    numsShort: [['18', { en: 'modules', es: 'módulos' }], ['47', { en: 'API controllers', es: 'controladores de API' }], ['1', { en: 'real client', es: 'cliente real' }]],
     ficha: [
-      [{ en: 'My role', es: 'Mi función' }, { en: 'I found the client, run the meetings with them, defined the modules, gather functional, non-functional and security requirements, write the user stories and manage sprints and priorities in YouTrack. I also develop the system and own the technical and product decisions.', es: 'Busqué al cliente, gestiono las reuniones con él, definí los módulos, levanto requerimientos funcionales, no funcionales y de seguridad, escribo las historias de usuario y gestiono sprints y prioridades en YouTrack. También desarrollo el sistema y tengo a cargo las decisiones técnicas y de producto.' }],
+      [{ en: 'My role', es: 'Mi función' }, { en: 'I sourced the client, run the meetings with them, defined the modules, gather functional, non-functional and security requirements, write the user stories and manage sprints and priorities in YouTrack. I also develop the system and own the technical and product decisions.', es: 'Busqué al cliente, gestiono las reuniones con él, definí los módulos, levanto requerimientos funcionales, no funcionales y de seguridad, escribo las historias de usuario y gestiono sprints y prioridades en YouTrack. También desarrollo el sistema y tengo a cargo las decisiones técnicas y de producto.' }],
       [{ en: 'Technologies', es: 'Tecnologías' }, { en: '.NET 10, React, PostgreSQL and SQL Server', es: '.NET 10, React, PostgreSQL y SQL Server' }],
       [{ en: 'Security', es: 'Seguridad' }, { en: 'JWT authentication, two-factor authentication (2FA) and role-protected routes', es: 'Autenticación JWT, doble factor (2FA) y rutas protegidas por rol' }],
       [{ en: 'Modules', es: 'Módulos' }, { en: 'Human resources, inventory and warehouse, accounting, donations, sponsors, occupational therapy and portals', es: 'Recursos humanos, inventario y bodega, contabilidad, donaciones, patrocinadores, terapia ocupacional y portales' }],
@@ -277,10 +282,16 @@ ${hre('en', enUrl)}${hre('es', esUrl)}${hre('x-default', enUrl)}  <meta property
   <meta property="og:url" content="${url}">
   <meta property="og:locale" content="${l === 'en' ? 'en_US' : 'es_CR'}">
   <meta property="og:locale:alternate" content="${l === 'en' ? 'es_CR' : 'en_US'}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${SITE}/assets/og-${l}.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${SITE}/assets/og-${l}.png">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(desc)}">
   <script type="application/ld+json">${JSON.stringify(ld)}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;600&display=swap">
@@ -300,7 +311,7 @@ const header = (l, current) => {
         <a href="${home}#${id('projects')}"${current === 'projects' ? ' aria-current="page"' : ''}>${tx(UI.nav.projects, l)}</a>
         <a href="${home}#${id('experience')}">${tx(UI.nav.experience, l)}</a>
         <a href="${home}#${id('skills')}">${tx(UI.nav.skills, l)}</a>
-        <a href="mailto:${EMAIL}">${tx(UI.nav.contact, l)}</a>
+        <a href="${home}#${id('contact')}">${tx(UI.nav.contact, l)}</a>
       </nav>
       <div class="ajustes" id="ajustes"></div>
     </div>
@@ -326,10 +337,11 @@ const write = (rel, html) => {
 // ------------------------------------------------------------------ inicio
 function indexPage(l) {
   const id = (k) => tx(UI.ids[k], l);
-  const rows = projects.map((p, i) => `        <li class="row${i === 0 ? ' lead-row' : ''}">
+  // Coraje y Esperanza va destacado arriba; la lista muestra los demás proyectos.
+  const rows = projects.slice(1).map((p) => `        <li class="row">
           <div class="logo"><img src="/assets/logos/${p.logo}" alt="${esc(tx(p.logoAlt, l))}" width="200" height="120" loading="lazy"></div>
           <div>
-            ${p.status ? `<span class="chip">${esc(tx(p.status, l))}</span>\n            ` : ''}<h3><a href="${projPath(l, p)}">${esc(tx(p.title, l))}</a></h3>
+            <h3><a href="${projPath(l, p)}">${esc(tx(p.title, l))}</a></h3>
             <p>${tx(p.short, l)}</p>
             <ul class="nums">${p.numsShort.map(([n, lab]) => `<li><strong>${n}</strong> ${esc(tx(lab, l))}</li>`).join('')}</ul>
             <ul class="tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
@@ -341,7 +353,9 @@ function indexPage(l) {
 ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
         </ul>
       </div>`).join('\n');
-  const skills = UI.skills.map(([h, t]) => `        <div><h3>${tx(h, l)}</h3><p>${tx(t, l)}</p></div>`).join('\n');
+  const skills = UI.skills.map(([h, t]) => `        <div><h3>${tx(h, l)}</h3><ul class="kw">${tx(t, l).split(' · ').map((s) => `<li>${esc(s)}</li>`).join('')}</ul></div>`).join('\n');
+  const cvBtns = `<a class="btn solid" href="${tx(UI.cvFile, l)}" download>${tx(UI.ctaCv, l)}</a>${l === 'es' ? `
+        <a class="btn" href="${UI.cvEs}" download>${tx(UI.ctaCvEs, l)}</a>` : ''}`;
   return `${head({ l, title: tx(UI.siteTitle, l), desc: tx(UI.siteDesc, l), path: homePath(l), altPath: homePath(other(l)), ld: personLd(l) })}
 <body>
   ${header(l, null)}
@@ -350,11 +364,8 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
       <h1>Deiby Vargas Chaves</h1>
       <p class="role">${tx(UI.h1role1, l)}</p>
       <p class="role">${tx(UI.h1role2, l)}</p>
-      <p class="lead">${tx(UI.lead, l)}</p>
       <div class="cta">
-        <a class="btn solid" href="#${id('projects')}">${tx(UI.ctaProjects, l)}</a>
-        <a class="btn" href="${tx(UI.cvFile, l)}" download>${tx(UI.ctaCv, l)}</a>${l === 'es' ? `
-        <a class="btn" href="${UI.cvEs}" download>${tx(UI.ctaCvEs, l)}</a>` : ''}
+        ${cvBtns}
         <a class="btn" href="mailto:${EMAIL}">${tx(UI.ctaMail, l)}</a>
         <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
@@ -374,17 +385,17 @@ ${UI.facts.map(([n, lab]) => `        <div><dt>${tx(n, l)}</dt><dd>${tx(lab, l)}
       </dl>
     </div>
 
+    <section id="${id('experience')}">
+      <h2>${tx(UI.experienceH, l)}</h2>
+${jobs}
+    </section>
+
     <section id="${l === 'en' ? 'method' : 'metodo'}">
       <h2>${tx(UI.methodH, l)}</h2>
       <p class="sub">${tx(UI.methodSub, l)}</p>
       <ol class="steps">
 ${UI.method.map(([h, t]) => `        <li><h3>${tx(h, l)}</h3><p>${tx(t, l)}</p></li>`).join('\n')}
       </ol>
-    </section>
-
-    <section id="${id('profile')}">
-      <h2>${tx(UI.profileH, l)}</h2>
-${tx(UI.profile, l).map((p) => `      <p class="prose">${p}</p>`).join('\n')}
     </section>
 
     <section id="${id('projects')}">
@@ -395,9 +406,9 @@ ${rows}
       </ul>
     </section>
 
-    <section id="${id('experience')}">
-      <h2>${tx(UI.experienceH, l)}</h2>
-${jobs}
+    <section id="${id('profile')}">
+      <h2>${tx(UI.profileH, l)}</h2>
+${tx(UI.profile, l).map((p) => `      <p class="prose">${p}</p>`).join('\n')}
     </section>
 
     <section id="${id('skills')}">
@@ -405,10 +416,23 @@ ${jobs}
       <div class="skills">
 ${skills}
       </div>
-      <p class="edu">${tx(UI.edu, l)}</p>${l === 'en' ? `
-      <ul class="kw" aria-label="${UI.kwH.en}">
-${UI.kw.map((k) => `        <li>${k}</li>`).join('\n')}
-      </ul>` : ''}
+    </section>
+
+    <section id="${l === 'en' ? 'education' : 'educacion'}">
+      <h2>${tx(UI.eduH, l)}</h2>
+      <p class="edu">${tx(UI.eduDegree, l)}</p>
+      <p class="edu">${tx(UI.eduLang, l)}</p>
+    </section>
+
+    <section id="${id('contact')}" class="contact">
+      <h2>${tx(UI.contactH, l)}</h2>
+      <p class="prose">${tx(UI.contactText, l)}</p>
+      <div class="cta">
+        <a class="btn solid" href="mailto:${EMAIL}">${EMAIL}</a>
+        <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="${tx(UI.cvFile, l)}" download>${tx(UI.ctaCv, l)}</a>
+      </div>
     </section>
   </main>
   ${footer(l)}
@@ -440,6 +464,7 @@ function projectPage(l, p, i) {
         ${p.status ? `<span class="chip">${esc(tx(p.status, l))}</span>` : ''}
         <h1>${esc(title)}</h1>
         <p class="dek">${esc(tx(p.dek, l))}</p>
+        <p class="roleline"><strong>${esc(tx(p.ficha[0][0], l))}:</strong> ${esc(tx(p.ficha[0][1], l))}</p>
       </div>
     </div>
     <dl class="facts">
@@ -455,7 +480,7 @@ ${p.video.chapters.map(([t, lab]) => `      <li><button type="button" data-t="${
     <p class="aviso"><strong>${tx(UI.notice, l)}</strong> ${tx(p.aviso, l)}${note ? ' ' + note : ''}</p>
     <h2 class="sec-h" style="margin-top:2.5rem">${tx(UI.scopeH, l)}</h2>
     <dl class="ficha">
-${p.ficha.map(([k, v]) => `      <div><dt>${esc(tx(k, l))}</dt><dd>${esc(tx(v, l))}</dd></div>`).join('\n')}
+${p.ficha.slice(1).map(([k, v]) => `      <div><dt>${esc(tx(k, l))}</dt><dd>${esc(tx(v, l))}</dd></div>`).join('\n')}
     </dl>
     <h2 class="sec-h">${tx(UI.composedH, l)}</h2>
     <div class="grupos">
@@ -500,6 +525,12 @@ for (const p of projects) {
   const to = SITE + projPath('es', p);
   write(`proyectos/${p.slug.es}.html`, `<!doctype html>\n<html lang="es"><head><meta charset="utf-8"><title>Redirigiendo…</title><meta name="robots" content="noindex"><link rel="canonical" href="${to}"><meta http-equiv="refresh" content="0;url=${projPath('es', p)}"></head><body><p><a href="${projPath('es', p)}">Ir al proyecto</a></p></body></html>\n`);
 }
+
+// Página 404 (GitHub Pages la usa para cualquier ruta que no exista)
+write('404.html', `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found | Deiby Vargas Chaves</title><meta name="robots" content="noindex"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;600&display=swap"><link rel="stylesheet" href="/style.css"><script src="/init.js"></script></head>
+<body><main id="contenido" class="wrap" style="padding-top:5rem"><h1>Page not found</h1><p class="dek">That link does not exist or has moved. / Esa página no existe o se movió.</p><div class="cta" style="margin-top:1.5rem"><a class="btn solid" href="/">Back to the portfolio</a><a class="btn" href="/es/">Volver al portafolio</a></div></main></body></html>
+`);
 
 // Sitemap
 const urls = [];
