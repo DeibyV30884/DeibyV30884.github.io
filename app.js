@@ -1,9 +1,19 @@
 // El contenido vive en el HTML (lo leen también rastreadores que no ejecutan JavaScript).
-// Este archivo solo agrega comodidades: año del pie, panel de ajustes de lectura y capítulos del video.
+// Este archivo solo agrega comodidades: año del pie, panel de ajustes de lectura (con idioma) y capítulos del video.
 (function () {
   var root = document.documentElement;
+  var lang = root.lang === 'es' ? 'es' : 'en';
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+  var T = {
+    en: { btn: 'Reading settings', group: 'Reading settings', theme: 'Theme', light: 'Light', dark: 'Dark', auto: 'Automatic', size: 'Font size',
+      contrast: 'High contrast', font: 'System font (more neutral and legible)', spacing: 'More space between lines and letters', motion: 'Reduce animations',
+      lang: 'Language', reset: 'Reset settings' },
+    es: { btn: 'Ajustes de lectura', group: 'Ajustes de lectura', theme: 'Tema', light: 'Claro', dark: 'Oscuro', auto: 'Automático', size: 'Tamaño de letra',
+      contrast: 'Contraste alto', font: 'Letra del sistema (más neutra y legible)', spacing: 'Más espacio entre líneas y letras', motion: 'Reducir animaciones',
+      lang: 'Idioma', reset: 'Restablecer ajustes' },
+  }[lang];
 
   // ---- Ajustes de lectura ----
   var KEY = 'ajustes';
@@ -11,6 +21,7 @@
   try { st = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
   st.theme = st.theme || 'auto'; st.fs = Number(st.fs) || 100;
 
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
   function apply() {
     root.dataset.theme = st.theme;
     root.style.setProperty('--fs', st.fs + '%');
@@ -18,7 +29,14 @@
     st.font === 'system' ? root.dataset.font = 'system' : delete root.dataset.font;
     st.spacing ? root.dataset.spacing = 'wide' : delete root.dataset.spacing;
     st.motion ? root.dataset.motion = 'reduce' : delete root.dataset.motion;
-    try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+    save();
+  }
+
+  function goLang(code) {
+    st.lang = code; save();
+    if (code === lang) return;
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + code + '"]');
+    if (alt) location.href = new URL(alt.href).pathname + location.hash;
   }
 
   var host = document.getElementById('ajustes');
@@ -34,16 +52,14 @@
     host.innerHTML =
       '<button class="aj-btn" type="button" aria-expanded="false" aria-controls="aj-panel">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 19 9 5l6 14M5.2 14h7.6M16 19l2.5-6 2.5 6M17 17.5h3"/></svg>' +
-      '<span>Ajustes de lectura</span></button>' +
-      '<div class="aj-panel" id="aj-panel" role="group" aria-label="Ajustes de lectura" hidden>' +
-      seg('theme', 'Tema', [['light', 'Claro'], ['dark', 'Oscuro'], ['auto', 'Automático']]) +
-      '<fieldset><legend><label for="aj-fs">Tamaño de letra</label></legend><div class="range"><span class="a-s" aria-hidden="true">A</span>' +
+      '<span>' + T.btn + '</span></button>' +
+      '<div class="aj-panel" id="aj-panel" role="group" aria-label="' + T.group + '" hidden>' +
+      seg('lang', T.lang, [['en', 'English'], ['es', 'Español']]) +
+      seg('theme', T.theme, [['light', T.light], ['dark', T.dark], ['auto', T.auto]]) +
+      '<fieldset><legend><label for="aj-fs">' + T.size + '</label></legend><div class="range"><span class="a-s" aria-hidden="true">A</span>' +
       '<input id="aj-fs" type="range" min="85" max="150" step="5" value="100" aria-valuetext="100 %"><span class="a-l" aria-hidden="true">A</span><output for="aj-fs">100 %</output></div></fieldset>' +
-      chk('contrast', 'Contraste alto') +
-      chk('font', 'Letra del sistema (más neutra y legible)') +
-      chk('spacing', 'Más espacio entre líneas y letras') +
-      chk('motion', 'Reducir animaciones') +
-      '<button class="aj-reset" type="button">Restablecer ajustes</button></div>';
+      chk('contrast', T.contrast) + chk('font', T.font) + chk('spacing', T.spacing) + chk('motion', T.motion) +
+      '<button class="aj-reset" type="button">' + T.reset + '</button></div>';
 
     var btn = host.querySelector('.aj-btn'), panel = host.querySelector('.aj-panel');
     var fsIn = host.querySelector('#aj-fs'), fsOut = host.querySelector('output');
@@ -51,7 +67,8 @@
     fsIn.addEventListener('input', function () { st.fs = Number(fsIn.value); showFs(); apply(); });
     var sync = function () {
       showFs();
-      host.querySelectorAll('input[type=radio]').forEach(function (i) { i.checked = st[i.name] === i.value; });
+      host.querySelector('[name=lang][value=' + lang + ']').checked = true;
+      host.querySelector('[name=theme][value=' + st.theme + ']').checked = true;
       host.querySelector('[name=contrast]').checked = !!st.contrast;
       host.querySelector('[name=font]').checked = st.font === 'system';
       host.querySelector('[name=spacing]').checked = !!st.spacing;
@@ -65,12 +82,13 @@
     });
     panel.addEventListener('change', function (e) {
       var i = e.target;
-      if (i.type === 'radio') st[i.name] = i.value;
+      if (i.name === 'lang') { goLang(i.value); return; }
+      if (i.name === 'theme') st.theme = i.value;
       else if (i.name === 'font') st.font = i.checked ? 'system' : '';
       else st[i.name] = i.checked;
       apply();
     });
-    panel.querySelector('.aj-reset').addEventListener('click', function () { st = { theme: 'auto', fs: 100 }; apply(); sync(); });
+    panel.querySelector('.aj-reset').addEventListener('click', function () { st = { theme: 'auto', fs: 100, lang: st.lang }; apply(); sync(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(true); });
     document.addEventListener('click', function (e) { if (!panel.hidden && !host.contains(e.target)) close(false); });
     apply();

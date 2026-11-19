@@ -1,4 +1,5 @@
-// Aplica los ajustes de lectura guardados antes de pintar la página (evita el parpadeo de tema).
+// Aplica los ajustes de lectura guardados antes de pintar la página (evita el parpadeo de tema)
+// y lleva a la versión en el idioma que la persona eligió (por defecto el sitio está en inglés).
 (function () {
   var r = document.documentElement, s = {};
   try { s = JSON.parse(localStorage.getItem('ajustes') || '{}'); } catch (e) {}
@@ -8,4 +9,8 @@
   if (s.font === 'system') r.dataset.font = 'system';
   if (s.spacing) r.dataset.spacing = 'wide';
   if (s.motion) r.dataset.motion = 'reduce';
+  if (s.lang && s.lang !== r.lang) {
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + s.lang + '"]');
+    if (alt) location.replace(new URL(alt.href).pathname + location.hash);
+  }
 })();
