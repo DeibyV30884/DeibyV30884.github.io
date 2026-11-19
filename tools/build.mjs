@@ -8,7 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://deibyv30884.github.io';
+const SITE = 'https://deibyvargaschaves.com';
 const EMAIL = 'deibyvargaschaves@gmail.com';
 const LINKEDIN = 'https://www.linkedin.com/in/deiby-vargas-chaves-239839258/';
 const GITHUB = 'https://github.com/DeibyV30884';
