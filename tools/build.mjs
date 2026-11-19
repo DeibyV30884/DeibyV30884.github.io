@@ -15,7 +15,7 @@ const projects = [
     dek: 'Sistema de gestión para un centro diurno: recursos humanos, contabilidad, inventario, terapia ocupacional y portales para familias y beneficiarios.',
     status: 'En desarrollo, con cliente real',
     ficha: [
-      ['Mi función', 'Decisiones técnicas y de producto. Levanto requerimientos funcionales, no funcionales y de seguridad directamente con el cliente y gestiono sprints y prioridades en YouTrack.'],
+      ['Mi función', 'Busqué al cliente, gestiono las reuniones con él, definí los módulos, levanto requerimientos funcionales, no funcionales y de seguridad, escribo las historias de usuario y gestiono sprints y prioridades en YouTrack. También desarrollo el sistema y tengo a cargo las decisiones técnicas y de producto.'],
       ['Tecnologías', '.NET 10, React, PostgreSQL y SQL Server'],
       ['Seguridad', 'Autenticación JWT, doble factor (2FA) y rutas protegidas por rol'],
       ['Módulos', 'Recursos humanos, inventario y bodega, contabilidad, donaciones, patrocinadores, terapia ocupacional y portales'],
@@ -60,6 +60,7 @@ const projects = [
     title: 'Sistema de Citas y Expedientes Médicos',
     dek: 'Aplicación web con roles para programar citas, llevar los expedientes de los pacientes y registrar tratamientos y recetas.',
     ficha: [
+      ['Mi función', 'Proyecto en equipo. Analicé los requerimientos, planteé qué se iba a hacer y dividí el trabajo en partes. Además desarrollé el mayor porcentaje del sistema.'],
       ['Roles', 'Administrador, secretaría, médico y paciente'],
       ['Tecnologías', 'Java, Spring Boot, Thymeleaf, Spring Security y MySQL'],
       ['Idiomas', 'Interfaz en español e inglés'],
@@ -81,6 +82,7 @@ const projects = [
     title: 'AlimenTICO · Donación de Comida',
     dek: 'Plataforma que conecta restaurantes con excedentes de comida con personas que la necesitan, para reducir el desperdicio y generar impacto social.',
     ficha: [
+      ['Mi función', 'Proyecto en equipo. Analicé los requerimientos, planteé qué se iba a hacer y dividí el trabajo en partes. Además desarrollé el mayor porcentaje del sistema.'],
       ['Roles', 'Restaurante, beneficiario y administrador'],
       ['Tecnologías', 'PHP con patrón MVC, MySQL, Docker y PHPMailer'],
       ['Alcance', 'Donaciones, reservas con código de retiro, notificaciones y horarios de los restaurantes'],
