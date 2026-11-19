@@ -5,6 +5,7 @@
 // Para agregar un proyecto: añade un bloque a `projects`, ejecuta el script y listo (también actualiza sitemap.xml).
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -12,6 +13,12 @@ const SITE = 'https://deibyvargaschaves.com';
 const EMAIL = 'deibyvargaschaves@gmail.com';
 const LINKEDIN = 'https://www.linkedin.com/in/deiby-vargas-chaves-239839258/';
 const GITHUB = 'https://github.com/DeibyV30884';
+// Versiona los archivos (?v=hash) para que el navegador descargue de nuevo solo lo que cambió.
+const asset = (rel) => {
+  const f = path.join(root, rel);
+  if (!fs.existsSync(f)) return rel;
+  return `${rel}?v=${crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8)}`;
+};
 const LANGS = ['en', 'es'];
 const tx = (v, l) => (v && typeof v === 'object' && !Array.isArray(v) && 'en' in v ? v[l] : v);
 
@@ -296,8 +303,8 @@ ${hre('en', enUrl)}${hre('es', esUrl)}${hre('x-default', enUrl)}  <meta property
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;600&display=swap">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/init.js"></script>
+  <link rel="stylesheet" href="${asset('/style.css')}">
+  <script src="${asset('/init.js')}"></script>
 </head>`;
 }
 
@@ -326,7 +333,7 @@ const footer = (l) => `<footer>
     <a href="${GITHUB}" target="_blank" rel="noopener">GitHub</a> ·
     <a href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a></div>
   </footer>
-  <script src="/app.js"></script>`;
+  <script src="${asset('/app.js')}"></script>`;
 
 const write = (rel, html) => {
   const f = path.join(root, rel);
@@ -340,7 +347,7 @@ function indexPage(l) {
   const id = (k) => tx(UI.ids[k], l);
   // Coraje y Esperanza va destacado arriba; la lista muestra los demás proyectos.
   const rows = projects.slice(1).map((p) => `        <li class="row">
-          <div class="logo"><img src="/assets/logos/${p.logo}" alt="${esc(tx(p.logoAlt, l))}" width="200" height="120" loading="lazy"></div>
+          <div class="logo"><img src="${asset('/assets/logos/' + p.logo)}" alt="${esc(tx(p.logoAlt, l))}" width="200" height="120" loading="lazy"></div>
           <div>
             <h3><a href="${projPath(l, p)}">${esc(tx(p.title, l))}</a></h3>
             <p>${tx(p.short, l)}</p>
@@ -363,7 +370,7 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
   <main id="contenido" class="wrap">
     <div class="hero">
       <div class="hero-top">
-        <img class="portrait" src="/assets/deiby-vargas-chaves.jpg" alt="${esc(tx(UI.photoAlt, l))}" width="480" height="480" fetchpriority="high">
+        <img class="portrait" src="${asset('/assets/deiby-vargas-chaves.jpg')}" alt="${esc(tx(UI.photoAlt, l))}" width="480" height="480" fetchpriority="high">
         <div class="hero-text">
       <h1>Deiby Vargas Chaves</h1>
       <p class="role">${tx(UI.h1role1, l)}</p>
@@ -377,7 +384,7 @@ ${tx(j.items, l).map((i) => `          <li>${i}</li>`).join('\n')}
         </div>
       </div>
       <div class="feature">
-        <div class="logo logo-sm"><img src="/assets/logos/${projects[0].logo}" alt="${esc(tx(projects[0].logoAlt, l))}" width="160" height="160"></div>
+        <div class="logo logo-sm"><img src="${asset('/assets/logos/' + projects[0].logo)}" alt="${esc(tx(projects[0].logoAlt, l))}" width="160" height="160"></div>
         <div>
           <span class="chip">${tx(UI.feat.chip, l)}</span>
           <h2><a href="${projPath(l, projects[0])}">${esc(tx(projects[0].title, l))}</a></h2>
@@ -415,7 +422,7 @@ ${rows}
     <section id="${id('profile')}">
       <h2>${tx(UI.profileH, l)}</h2>
       <div class="about">
-        <img class="portrait portrait-sm" src="/assets/deiby-vargas-chaves.jpg" alt="${esc(tx(UI.photoAlt, l))}" width="480" height="480" loading="lazy">
+        <img class="portrait portrait-sm" src="${asset('/assets/deiby-vargas-chaves.jpg')}" alt="${esc(tx(UI.photoAlt, l))}" width="480" height="480" loading="lazy">
         <div>
 ${tx(UI.profile, l).map((p) => `          <p class="prose">${p}</p>`).join('\n')}
         </div>
@@ -470,7 +477,7 @@ function projectPage(l, p, i) {
   <main id="contenido" class="wrap">
     <p class="crumb"><a href="${homePath(l)}#${tx(UI.ids.projects, l)}">${tx(UI.crumb, l)}</a> / ${esc(title)}</p>
     <div class="phead">
-      <div class="logo logo-sm"><img src="/assets/logos/${p.logo}" alt="${esc(tx(p.logoAlt, l))}" width="160" height="160"></div>
+      <div class="logo logo-sm"><img src="${asset('/assets/logos/' + p.logo)}" alt="${esc(tx(p.logoAlt, l))}" width="160" height="160"></div>
       <div>
         ${p.status ? `<span class="chip">${esc(tx(p.status, l))}</span>` : ''}
         <h1>${esc(title)}</h1>
@@ -481,7 +488,7 @@ function projectPage(l, p, i) {
     <dl class="facts">
 ${p.nums.map(([n, lab]) => `      <div><dt>${n}</dt><dd>${esc(tx(lab, l))}</dd></div>`).join('\n')}
     </dl>
-    <video class="player" controls preload="metadata" playsinline poster="/assets/${p.video.poster}" aria-label="${esc(UI.videoAria[l](title))}">
+    <video class="player" controls preload="metadata" playsinline poster="${asset('/assets/' + p.video.poster)}" aria-label="${esc(UI.videoAria[l](title))}">
       <source src="/assets/${p.video.src}" type="video/mp4">
       ${tx(UI.videoFallback, l)}
     </video>
@@ -539,7 +546,7 @@ for (const p of projects) {
 
 // Página 404 (GitHub Pages la usa para cualquier ruta que no exista)
 write('404.html', `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found | Deiby Vargas Chaves</title><meta name="robots" content="noindex"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;600&display=swap"><link rel="stylesheet" href="/style.css"><script src="/init.js"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found | Deiby Vargas Chaves</title><meta name="robots" content="noindex"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;600&display=swap"><link rel="stylesheet" href="${asset('/style.css')}"><script src="${asset('/init.js')}"></script></head>
 <body><main id="contenido" class="wrap" style="padding-top:5rem"><h1>Page not found</h1><p class="dek">That link does not exist or has moved. / Esa página no existe o se movió.</p><div class="cta" style="margin-top:1.5rem"><a class="btn solid" href="/">Back to the portfolio</a><a class="btn" href="/es/">Volver al portafolio</a></div></main></body></html>
 `);
 
