@@ -1,6 +1,6 @@
 # Deiby Vargas Chaves · portfolio
 
-Static site (HTML, CSS and a little JavaScript) published with GitHub Pages: https://deibyv30884.github.io/
+Static site (HTML, CSS and a little JavaScript) published with GitHub Pages: https://deibyvargaschaves.com/
 
 ## Languages
 English is the default. Spanish lives under `/es/`. A language switch is in the "Reading settings" panel and remembers the choice. Both versions are real static pages (with `hreflang`), so search engines and ATS read both.
